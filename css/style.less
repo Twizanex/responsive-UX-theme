@@ -2388,33 +2388,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 
 }
 
-/************SVG effect**********/
-
-svg{
-
-	position: absolute;
-	top: 9px;
-	left: 9px;
-	
-	opacity: 0;
-	cursor: pointer;
-	
-	.transition(opacity, .4s, ease-in, 0s);
-	.translate(0, -250%);
-}
-
-.show_detail:hover svg, .show_category:hover svg {
-	opacity: 1;
-	.translate(0, 0%);
-}
-
-@media screen and (max-width: 700px){
-
-	svg{
-		display: none;
-	}
-}
-
 /************************form********************/
 
 /*********input text****/
