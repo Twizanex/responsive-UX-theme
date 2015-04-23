@@ -3540,6 +3540,12 @@ a:hover{
     }
 }
 
+@media screen and (max-width: 640px){ 
+	.contacts{
+		display: none;
+	}
+}
+
 @media screen and (max-width: 500px){ 
 	.contacts{
 		
@@ -3565,22 +3571,30 @@ a:hover{
 	color: #fefefe;
 	
 	.copyright{
-		float: left;
 		margin-left: 25px;
-	}
-	
-	.author{
-		float: right;
 	}
 	
 	a:hover{
 		color: @hover_color_theme;
+	}
+	
+	.footer_right_column{
+		float: right;
+	}
+	
+	.social {
+		margin-top: 10px;
+	}
+	.footer_left_column {
+		float: left;
 	}
 }
 
 .footer:after{
 	.clear();
 }
+
+
 
 @media screen and (max-width: 640px){ 
 	.footer{

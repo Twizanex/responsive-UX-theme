@@ -1,6 +1,7 @@
- google.maps.event.addDomListener(window, 'load', init);
-    var map;
+// google.maps.event.addDomListener(window, 'load', init);
+    
     function init() {
+		var map;
         var mapOptions = {
             center: new google.maps.LatLng(32.729386,-97.096883),
             zoom: 13,
