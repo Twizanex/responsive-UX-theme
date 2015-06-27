@@ -1,5 +1,12 @@
-(function($){
+/*
+author: Developed by Stas Melnikov. http://stas-melnikov.ru
+e-mail: melnik909@ya.ru
+linkedIn: https://www.linkedin.com/in/melnik909
+github: https://github.com/melnik909
+facebook: https://www.facebook.com/melnik909
+*/
 
+(function($){
 	var body = $('body'),
 	header = body.find('.header'),
 	scroll_menu = header.find('#scroll_menu'),
@@ -10,7 +17,7 @@
 	}
 	else{
 		body.attr({'id':'no_touch'});
-		if(pageYOffset > 50){
+		if(window.pageYOffset > 50){
 			body.addClass('fixed_menu');
 		}
 	}
@@ -18,7 +25,7 @@
 	if (body.attr('id') === 'no_touch'){
 	
 		$(document).on( 'scroll', function() {
-			if(pageYOffset > 50){
+			if(window.pageYOffset > 50){
 				body.addClass('fixed_menu');
 			}
 			else{

@@ -1,8 +1,10 @@
 /*
-Responsive framework
 author: Developed by Stas Melnikov. http://stas-melnikov.ru
+e-mail: melnik909@ya.ru
+linkedIn: https://www.linkedin.com/in/melnik909
+github: https://github.com/melnik909
+facebook: https://www.facebook.com/melnik909
 */
-
 (function(){ 
 
 var startX,
@@ -49,7 +51,7 @@ var startX,
 	var slides_item = slides_сontainer.querySelectorAll('.slide'),
 	slide_length = slides_item.length;
 	
-	slides_сontainer.style.width = slide_width + "px";;
+	slides_сontainer.style.width = slide_width + "px";
 	
 
 		for(var i = 0; i < slide_length; i++){

@@ -1,11 +1,17 @@
+/*
+author: Developed by Stas Melnikov. http://stas-melnikov.ru
+e-mail: melnik909@ya.ru
+linkedIn: https://www.linkedin.com/in/melnik909
+github: https://github.com/melnik909
+facebook: https://www.facebook.com/melnik909
+*/
+
 (function($){
 	var skills = $('.skills'),
 	skillsY = skills.offset().top - 350,
 	
 	feedback = $('#feedback'),
-	button = feedback.find('#button'),
-	
-	full_menu = feedback.siblings('#collapse');
+	button = feedback.find('#button');
 	
 	button.removeAttr("disabled");
 
@@ -13,7 +19,7 @@
 		skills.addClass('active_skills');
 	}
 
-	if(pageYOffset > skillsY) {
+	if(window.pageYOffset > skillsY) {
 		skills.addClass('active_skills');
 	}
 	
@@ -21,7 +27,7 @@
 	
 		$(document).on( 'scroll', function() {
 			
-			if(pageYOffset > skillsY) {
+			if(window.pageYOffset > skillsY) {
 			
 				skills.addClass('active_skills');
 				
@@ -30,4 +36,4 @@
 			}
 		});
 	}
-})(jQuery)
+})(jQuery);

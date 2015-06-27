@@ -1,14 +1,15 @@
 /*
-Responsive framework
 author: Developed by Stas Melnikov. http://stas-melnikov.ru
+e-mail: melnik909@ya.ru
+linkedIn: https://www.linkedin.com/in/melnik909
+github: https://github.com/melnik909
+facebook: https://www.facebook.com/melnik909
 */
 
-var body = $('body');
 
 (function($){
 	var type_production,   production_item_full,
 		siblings_type_production, active_block,
-	
 
 		works_portfolio = $('#works_portfolio'),
 		all_production =  works_portfolio.find('#all_production'),
@@ -94,8 +95,7 @@ var body = $('body');
 
 		event.preventDefault();
 		
-		var product_id = this.id,
-		text = 'Product successfully added to cart!',
+		var text = 'Product successfully added to cart!',
 		delay = 1000;			
 		$(this).Show_Tooltip(text, delay);
 	});
@@ -175,10 +175,7 @@ var body = $('body');
 				}
 			});
 		}, 200);
-		
-		
 	};
-	
 
 	$.fn.Enable_Close_Product = function(active_production_item){
 	
@@ -191,8 +188,3 @@ var body = $('body');
 		}
 	};
 })(jQuery);
-
-window.onload = function(){
-
-	body.removeClass('no_transition'); 
-};

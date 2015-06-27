@@ -1,8 +1,10 @@
 /*
-Responsive framework
 author: Developed by Stas Melnikov. http://stas-melnikov.ru
+e-mail: melnik909@ya.ru
+linkedIn: https://www.linkedin.com/in/melnik909
+github: https://github.com/melnik909
+facebook: https://www.facebook.com/melnik909
 */
-
 (function($){
 	var accordion_list_item,info_block;
 	

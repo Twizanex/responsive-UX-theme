@@ -2,7 +2,7 @@
 Responsive UX tamplate
 author: Stas Melnikov. http://stas-melnikov.ru
 e-mail - melnik909@ya.ru
-Template created with use of a Responsive Framework http://stas-melnikov.ru/responsive_elements/index.html
+Template created with use of a Responsive Framework http://stas-melnikov.ru/responsive_elements/
 */
 
 * {
@@ -17,7 +17,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 
 .transition(@property, @time, @effect, @delay){
 	-webkit-transition: @property @time @effect @delay;
-	-webkit-transition-delay:  @time @delay;
 	transition: @property @time @effect @delay;
 }
 
@@ -39,14 +38,13 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	transform: translateZ(0px) translate(@x, @y);
 }
 
-
 .transform_rotate(@value){
     -ms-transform: rotate(@value);
     -webkit-transform: rotate(@value);
     transform: rotate(@value);
 }
 
-.animation(@name, @duration, @delay){
+.animation(@name, @duration, @function, @delay, @mode){
 
 	-webkit-animation-name: @name;
 	animation-name: @name;
@@ -54,8 +52,14 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	-webkit-animation-duration: @duration;
 	animation-duration: @duration;
 	
+	-webkit-timing-function: @function;
+	animation-timing-function: @function;
+	
 	-webkit-animation-delay: @delay;
 	animation-delay: @delay;
+	
+	-webkit-animation-fill-mode: @mode;
+	animation-fill-mode: @mode;
 }
 
 .transform_scale(@value){ 
@@ -122,17 +126,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	-webkit-transform: none;
 	-ms-transform: none;
 	transform: none;	
-}
-
-.animation_settings(@name, @duration, @mode){
-	-webkit-animation-name: @name;
-	animation-name: @name;
-	
-	-webkit-animation-duration: @duration;
-	animation-duration: @duration;
-	
-	-webkit-animation-fill-mode: @mode;
-	animation-fill-mode: @mode;
 }
 
 .clear(){
@@ -299,12 +292,10 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 
 	background-color: #6cc88a;
 	.translate(-50%, 0%);
+	.animation(left_round, 1.8s,  ease-in-out, 0s, both);
 	
-	-webkit-animation-fill-mode: both;
-	animation-fill-mode: both;
-	
-	-webkit-animation: left_round 1.8s infinite ease-in-out;
-	animation: left_round 1.8s infinite ease-in-out;
+	-webkit-iteration-count: infinite;
+	animation-iteration-count: infinite;
 	
 	-webkit-animation-play-state: paused;
 	animation-play-state: paused;
@@ -315,11 +306,10 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	background-color: #4fc3f7;
 	.translate(150%, 0%);
 	
-	-webkit-animation-fill-mode: both;
-	animation-fill-mode: both;
+	.animation(right_round, 1.8s,  ease-in-out, 0s, both);
 	
-	-webkit-animation: right_round 1.8s infinite ease-in-out;
-	animation: right_round 1.8s infinite ease-in-out;
+	-webkit-iteration-count: infinite;
+	animation-iteration-count: infinite;
 	
 	-webkit-animation-play-state: paused;
 	animation-play-state: paused;
@@ -382,39 +372,58 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	display: none;
 	cursor: pointer;
 	position: relative;
+	
+	&:before{
+
+		content: '';
+		display: block;
+		
+		height: 6px; 
+		width: 40px;
+		
+		position: absolute; 
+		top: 5px; 
+		right: 10px;
+		
+		background-color: #1493C8;
+		box-shadow : 0 12px #1496CB, 0 24px #1496CB;
+		
+		.complex_transition(box-shadow, background-color, .4s, ease-in);
+	}
+
+	&:hover:before, .active_icon #icon_menu:before{
+		box-shadow : 0 12px #1477a0, 0 24px #1477a0;
+		background-color: #1477a0;	
+	}
 }
 
-#icon_menu:before{
-
-	content: '';
-	display: block;
-	
-	height: 6px; 
-	width: 40px;
-	
-	position: absolute; 
-	top: 5px; 
-	right: 10px;
-	
-	background-color: #1493C8;
-	box-shadow : 0 12px #1496CB, 0 24px #1496CB;
-	
-	.complex_transition(box-shadow, background-color, .4s, ease-in);
-}
-
-#icon_menu:hover:before, .active_icon #icon_menu:before{
+.active_icon #icon_menu:before{
 	box-shadow : 0 12px #1477a0, 0 24px #1477a0;
 	background-color: #1477a0;	
 }
 
 .menu{
+
 	position: relative;
 	margin-top: 10px;
-}
+	
+	.menu_item{
+		display: inline-block;
+		vertical-align: top;
+	}
+	
+	.line_bottom{
 
-.menu_item{
-	display: inline-block;
-	vertical-align: top;
+		display: block;
+		
+		height: 2px;
+		width: 0;
+		
+		margin-top: 5px;
+		background-color: @menu_decor_color;
+		
+		.transition(width, .7s, ease-in, 0s);
+	}
 }
 
 .menu_link, .alternative_menu_link{
@@ -426,22 +435,11 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	.transition(color, .4s, ease-in, 0s);
 }
 
-.line_bottom{
-
-	display: block;
-	
-	height: 2px;
-	width: 0;
-	
-	margin-top: 5px;
-	background-color: @menu_decor_color;
-	
-	.transition(width, .7s, ease-in, 0s);
-}
-
 .menu_link:hover .line_bottom, .alternative_menu_link:hover .line_bottom{
 	width: 100%;
 }
+
+/********************************drop down menu*********************/
 
 .drop_down_block{
 
@@ -460,10 +458,15 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	padding: 0 25px;
 	text-align: right;
 	line-height: 35px;
+	
+	.drop_down_menu_link {
+		color: #000;
+		font-size: 15px;
+		display: block;
+	}
 }
 
-@-moz-document url-prefix()
-{
+@-moz-document url-prefix(){
 	.drop_down_block{
 		top: 37px;
 	}
@@ -473,12 +476,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	.drop_down_block{
 		top: 36px;
 	}
-}
-
-.drop_down_menu_link {
-	color: #000;
-	font-size: 15px;
-	display: block;
 }
 
 .menu_link:hover, .drop_down_menu_link:hover, .alternative_menu_link:hover{
@@ -492,19 +489,21 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 		z-index: 3;
 		border: 1px solid rgba(0,0,0,0);
 	}
+	
+	&:hover{
+		
+		.menu_link{
+			border-color: @menu_decor_color; 
+			border-bottom: 1px solid #fff;
+		}
+		
+		.drop_down_block{
+			display: block;
+		}
+	}
 }
 
-.wrapper_drop_down_block:hover{
-	
-	.menu_link{
-		border-color: @menu_decor_color; 
-		border-bottom: 1px solid #fff;
-	}
-	
-	.drop_down_block{
-		display: block;
-	}
-}
+/*******************full menu*****************/
 
 .full_menu{
 	
@@ -548,51 +547,49 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	.additional_menu{
 		z-index: 9997;
 	}
-}
 
-#collapse:before, #collapse:after{
-	
-	content: "";
-	display: block;
-	position: absolute;
-	
-	height: 100%;
-	width: 50%;
-	
-	background-color: rgba(20, 147, 200, 1);
-	opacity: 0;
-	
-	.complex_transition(opacity, transform, .7s, ease-out)
-}
+	&:before, &:after{
+		
+		content: "";
+		display: block;
+		position: absolute;
+		
+		height: 100%;
+		width: 50%;
+		
+		background-color: rgba(20, 147, 200, 1);
+		opacity: 0;
+		
+		.complex_transition(opacity, transform, .7s, ease-out)
+	}
 
-#collapse:before{
-	left: 0;
-	.translate(-200%, 0);
-}
+	&:before{
+		left: 0;
+		.translate(-200%, 0);
+	}
 
-#collapse:after{
-	right: 0;
-	.translate(200%, 0);
+	&:after{
+		right: 0;
+		.translate(200%, 0);
+	}
 }
 
 .active_full_menu{
 	
 	#collapse{
+	
 		.translate(0, 0%);
 		
 		.additional_menu{
-			.animation(fade, .7s, 1s);
-			-webkit-animation-fill-mode: both;
-			animation-fill-mode: both;
+			.animation(fade, .7s, ease, 1s, both);
+		}
+	
+		&:before, &:after{
+		
+			opacity: 1; 
+			.translate(0, 0%);
 		}
 	}
-	
-	#collapse:before, #collapse:after{
-	
-		opacity: 1; 
-		.translate(0, 0%);
-	}
-
 	
 	.additional_menu{
 	
@@ -723,156 +720,188 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	position: relative;
 	text-align: left;
 	margin: 0 auto 65px;
-}
+	
+	&:hover{
+		.arrow{
+			.translate(0%, -50%);
+		}
+	}
+	
+	#slidesContainer {
+		height: @height_slide; 
+		overflow: hidden; 
+		position: relative;
+	}
 
+	#slideInner:after{
+		clear: both;
+		display: block;
+		content: "";
+	}
 
-#slidesContainer {
-	height: @height_slide; 
-	overflow: hidden; 
-	position: relative;
-}
+	.slide {
 
-#slideInner:after{
-	clear: both;
-	display: block;
-	content: "";
-}
+		float: left;
+		position: relative;
 
-.slide {
+		height: @height_slide;
+		background-color: #0091be; 
+		cursor: url(icons/take.png) 8 8, move;
+	}
 
-	float: left;
-	position: relative;
-
-	height: @height_slide;
-	background-color: #0091be; 
-	cursor: url(icons/take.png) 8 8, move;
-}
-
-#slideshow:hover{
 	.arrow{
-		.translate(0%, -50%);
+
+		width: 40px;
+		height: 70px;
+		
+		padding: 8px 15px;
+		background-color: rgba(0, 147, 184, .8);
+		cursor: pointer;
+		
+		position: absolute;
+		top: 50%;
+		z-index: 8;
+		
+		.transition(transform, .3s, ease-out, 0s);
 	}
-}
 
-.arrow{
+	.prev:before, .next:before{
 
-	width: 40px;
-	height: 70px;
-	
-	padding: 8px 15px;
-	background-color: rgba(0, 147, 184, .8);
-	cursor: pointer;
-	
-	position: absolute;
-	top: 50%;
-	z-index: 8;
-	
-	.transition(transform, .3s, ease-out, 0s);
-}
+		content: "";
+		display: block;
+		
+		height: 35px;
+		width: 35px;
+		
+		position: absolute;
+		z-index: 8;
 
-.prev{
-	.translate(-120%, -50%);
-}
+		.transform_rotate(-135deg);
+		.transition(color, 0.4s, ease-in, 0s);
+		
+		border-style: solid;
+		color: #fff;
+	}
 
-.next{
-	right: 0;
-	.translate(120%, -50%);
-}
+	.prev{
+		.translate(-120%, -50%);
+		
+		&:before{
+			border-width: 15px 15px 0 0;
+			left: 20px;
+			top: 20px;
+		}
+	}
 
-.prev:before, .next:before{
-
-	content: "";
-	display: block;
-	
-	height: 35px;
-	width: 35px;
-	
-	position: absolute;
-	z-index: 8;
-
-	.transform_rotate(-135deg);
-	.transition(color, 0.4s, ease-in, 0s);
-	
-	border-style: solid;
-	color: #fff;
-}
-
-.prev:before{
-	border-width: 15px 15px 0 0;
-	left: 20px;
-	top: 20px;
-}
-
-.next:before{
-	border-width: 0 0 15px 15px;
-	top: 20px;
-	right: 20px;
-}
-
-.icon_slide{
-
-	position: absolute;
-	left: 18%;
-	top: 150px;
-	
-	width: 300px;
-	height: 300px;
-}
- 
-#slide1{
+	.next{
+		right: 0;
+		.translate(120%, -50%);
+		
+		&:before{
+			border-width: 0 0 15px 15px;
+			top: 20px;
+			right: 20px;
+		}
+	}
 	.icon_slide{
-		background: url("../images/html5.png") no-repeat 0 0;
+
+		position: absolute;
+		left: 18%;
+		top: 150px;
+		
+		width: 300px;
+		height: 300px;
 	}
-}
-
-#slide2{
-	.icon_slide{
-		background: url("../images/css3.png") no-repeat 0 0;
-		top: 25px;
+	
+	#slide1{
+		.icon_slide{
+			background: url("../images/html5.png") no-repeat 0 0;
+		}
 	}
-}
 
-#slide3{
-	.icon_slide{
-		background: url("../images/js.png") no-repeat 0 0;
+	#slide2{
+		.icon_slide{
+			background: url("../images/css3.png") no-repeat 0 0;
+			top: 25px;
+		}
 	}
-}
 
-.slide_info{
+	#slide3{
+		.icon_slide{
+			background: url("../images/js.png") no-repeat 0 0;
+		}
+	}
 
-	color: #fff;
-	font-size: 46px;
-	font-style: italic;
+	.slide_info{
+
+		color: #fff;
+		font-size: 46px;
+		font-style: italic;
+		
+		position: absolute;
+		top: 100px;
+		left: 52%;
+	}
+
+	.decor{
+
+		font-size: 75px;
+		font-style: normal;
+		text-transform: uppercase;
+		
+		display: block;
+	}
+
+	.paragraph_two{
+		top: 300px;
+	}
+
+	.layer{
+
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+		
+		display: block;
+		opacity: 0;
+	}
+
+	.active_slide .scale{
+		.animation(scale, 1s, ease, 1.5s, both);
+	}
 	
-	position: absolute;
-	top: 100px;
-	left: 52%;
-}
+	.slide_bottom{
+		.translate(0%, -10%);
+	}
 
-.decor{
-
-	font-size: 75px;
-	font-style: normal;
-	text-transform: uppercase;
+	.active_slide .slide_bottom{
+		.animation(slide_bottom, 1s, ease, 1.5s, both);
+	}
 	
-	display: block;
-}
+	.slide_top{
+		.translate(0%,40%);
+	}
 
-.paragraph_two{
-	top: 300px;
-}
-
-.layer{
-
-	-webkit-animation-fill-mode: both;
-	animation-fill-mode: both;
+	.active_slide .slide_top{
+		.animation(slide_top, 1s, ease, 1.5s, both);
+	}
 	
-	display: block;
-	opacity: 0;
-}
-
-.active_slide .scale{
-	.animation(scale, 1s, 1.5s);
+	.active_slide .slide_left{
+		.animation(slide_left, 1s, ease, 1s, both);
+		.translate(-200%,0%);
+	}
+	
+	.active_slide .slide_right{
+		.animation(slide_right, 1s, ease, 1s, both);
+		.translate(200%,0%);
+	}
+	
+	.active_slide .flipX{
+		.animation(flipX, 1s, ease, .5s, both);
+	}
+	
+	.active_slide .flipY{
+		.animation(flipY, 1.5s, ease, .5s, both);
+	}
 }
 
 @keyframes scale {
@@ -899,14 +928,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	}
 }
 
-.slide_bottom{
-	.translate(0%, -10%);
-}
-
-.active_slide .slide_bottom{
-	.animation(slide_bottom, 1s, 1.5s);
-}
-
 @keyframes slide_bottom {
 	0% {
 		.translate(0%,0%);	
@@ -929,14 +950,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 		.translate(0%,-10%);
 		opacity: 1;
 	} 
-}
-
-.slide_top{
-	.translate(0%,40%);
-}
-
-.active_slide .slide_top{
-	.animation(slide_top, 1s, 1.5s);
 }
 
 @keyframes slide_top {
@@ -963,11 +976,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	}
 }
 
-.active_slide .slide_left{
-	.animation(slide_left, 1s, 1s);
-	.translate(-200%,0%);
-}
-
 @keyframes slide_left {
 	0% {
 		.translate(-200%,0%);
@@ -988,11 +996,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 		.translate(0%,0%);
 		opacity: 1;
 	}
-}
-
-.active_slide .slide_right{
-	.animation(slide_right, 1s, 1s);
-	.translate(200%,0%);
 }
 
 @keyframes slide_right {
@@ -1017,10 +1020,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	}
 }
 
-.active_slide .flipX{
-	.animation(flipX, 1s, .5s);
-}
-	
 @keyframes flipX {
   0% {
 		opacity: 0;
@@ -1043,10 +1042,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 		opacity: 1;
 		.transform_rotateX(0);
   }
-}
-
-.active_slide .flipY{
-	.animation(flipY, 1.5s, .5s);
 }
 	
 @keyframes flipY {
@@ -1075,8 +1070,10 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 
 @media screen and (min-width: 1600px){ 
 	
-	.icon_slide{
-		left: 25%;
+	#slideshow{
+		.icon_slide{
+			left: 25%;
+		}
 	}
 }
 
@@ -1085,9 +1082,10 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	#slideshow,#slidesContainer, .slide{
 		height: 660px;
 	}
-	
-	.icon_slide{
-		left: 10%;
+	#slideshow{
+		.icon_slide{
+			left: 10%;
+		}
 	}
 }
 
@@ -1097,26 +1095,28 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 		height: 585px;
 	}
 	
-	.arrow{
-		display: none !important;
-	}
-	
-	.icon_slide{
-		left: 5%;
-		top: 165px;
-	}
-	
-	.slide_info {
-		font-size: 30px;
-		top: 175px;
-	}
+	#slideshow{
+		.arrow{
+			display: none !important;
+		}
+		
+		.icon_slide{
+			left: 5%;
+			top: 165px;
+		}
+		
+		.slide_info {
+			font-size: 30px;
+			top: 175px;
+		}
 
-	.paragraph_two {
-		top: 305px;
-	}
-	
-	#slide2 .icon_slide {
-		top: 5px;
+		.paragraph_two {
+			top: 305px;
+		}
+		
+		#slide2 .icon_slide {
+			top: 5px;
+		}
 	}
 }
 
@@ -1125,26 +1125,27 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	#slideshow,#slidesContainer, .slide{
 		height: 350px;
 	}
-	
-	.icon_slide{
-		top: 10%;
-	}
+	#slideshow{
+		.icon_slide{
+			top: 10%;
+		}
 
-	.slide_info {
-		font-size: 30px;
-		top: 20%;
-	}
+		.slide_info {
+			font-size: 30px;
+			top: 20%;
+		}
 
-	.paragraph_two {
-		top: 45%;
-	}
-	
-	.decor {
-		font-size: 40px;
-	}
+		.paragraph_two {
+			top: 45%;
+		}
+		
+		.decor {
+			font-size: 40px;
+		}
 
-	#slide2 .icon_slide {
-		top: -25%;
+		#slide2 .icon_slide {
+			top: -25%;
+		}
 	}
 }
 
@@ -1156,35 +1157,36 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	
 	#slideshow{
 		margin: 0 auto 25px;
-	}
 	
-	.icon_slide{
-		background: none !important;
-	}
 	
-	.slide_info{
-	
-		width: 90%;
-		font-size: 25px;
+		.icon_slide{
+			background: none !important;
+		}
 		
-		text-align: center;
-		left: 0;
-		top: 25%;
-	}
-	
-	.decor{
-		display: inline;
-		font-size: 40px;
-	}
-	
-	.paragraph_two{
-		top: 45%;
+		.slide_info{
+		
+			width: 90%;
+			font-size: 25px;
+			
+			text-align: center;
+			left: 0;
+			top: 25%;
+		}
+		
+		.decor{
+			display: inline;
+			font-size: 40px;
+		}
+		
+		.paragraph_two{
+			top: 45%;
+		}
 	}
 }
 
 @media screen and (max-width: 520px){
 	
-	.arrow{
+	#slideshow .arrow{
 		display: none !important;
 	}
 }
@@ -1194,19 +1196,22 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	#slideshow,#slidesContainer, .slide{
 		height: 225px;
 	}
-
-	.slide_info{
-		font-size: 20px;
-		top: 35%;
-	}
 	
-	.decor{
-		display: inline;
-		font-size: 20px;
-	}
+	#slideshow{
 	
-	.paragraph_two{
-		top: 55%;
+		.slide_info{
+			font-size: 20px;
+			top: 35%;
+		}
+		
+		.decor{
+			display: inline;
+			font-size: 20px;
+		}
+		
+		.paragraph_two{
+			top: 55%;
+		}
 	}
 }
 
@@ -1433,17 +1438,17 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 		background: #F7F7F7 !important;
 		color: #4F5559;
 	}
-}
-
-.tabs_container:after{
-	.clear;
+	
+	&:after{
+		.clear();
+	}
 }
 
 .tabs {
 	float: left;
 }
 
-.tab {
+.tab{
 	
 	text-align: center;	
 	float: left;
@@ -1500,7 +1505,7 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 }
 
 .horizontal:after{
-	.clear;
+	.clear();
 }
 
 #fade_left_tabs .show_tab .box_item{
@@ -1514,40 +1519,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	-webkit-animation-fill-mode: both;
 	animation-fill-mode: both;
 	
-}
-
-#fade_right_tabs .show_tab .box_item{
-
-	-webkit-animation-name: fade_right_tabs;
-	animation-name: fade_right_tabs;
-	position: relative;
-
-	-webkit-animation-duration: 1s;
-	animation-duration: 1s;
-	-webkit-animation-fill-mode: both;
-	animation-fill-mode: both;
-}
-
-#bounce_taps .show_tab .box_item {
-	.transform_origin(center, bottom);
-	position: relative;
-	.animation_settings(bounce_tabs, 1s, both)
-}
-
-#pulse_tab .show_tab .box_item{
-	position: relative;
-	.animation_settings(pulse_tabs, 1s, both)
-}
-
-#swing_tab .show_tab .box_item{
-	position: relative;
-	.animation_settings(swing_tabs, 1s, both);
-	.transform_origin(top, center);
-}
-
-#zoom_tab .show_tab .box_item{
-	position: relative;
-	.animation_settings(zoom_tab, 1s, both)
 }
 
 @-webkit-keyframes fade_left_tabs {
@@ -1571,166 +1542,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	100% {
 		opacity: 1;
 		.transform_none
-	}
-}
-
-@-webkit-keyframes fade_right_tabs {
-	0% {
-		opacity: 0;
-		.translate(100%, 0);
-	}
-
-	100% {
-		opacity: 1;
-		.transform_none
-	}
-}
-
-@keyframes fade_right_tabs {
-	0% {
-		opacity: 0;
-		.translate(100%, 0);
-	}
-
-	100% {
-		opacity: 1;
-		.transform_none
-	}
-}
-
-@-webkit-keyframes bounce_tabs {
-	0%, 20%, 53%, 80%, 100% {
-		.transition_timing_function(0.215, 0.610, 0.355, 1.000);
-		.translate(0,0);
-	}
-
-	40%, 43% {
-		.transition_timing_function(0.755, 0.050, 0.855, 0.060);
-		.translate(0, -30px);
-	}
-
-	70% {
-		.transition_timing_function(0.755, 0.050, 0.855, 0.060);
-		.translate(0, -15px);
-	}
-
-	90% {
-		.translate(0,-4px);
-	}
-}
-
-@keyframes bounce_tabs {
-	0%, 20%, 53%, 80%, 100% {
-		.transition_timing_function(0.215, 0.610, 0.355, 1.000);
-		.translate(0,0);
-	}
-
-	40%, 43% {
-		.transition_timing_function(0.755, 0.050, 0.855, 0.060);
-		.translate(0, -30px);
-	}
-
-	70% {
-		.transition_timing_function(0.755, 0.050, 0.855, 0.060);
-		.translate(0, -15px);
-	}
-
-	90% {
-		.translate(0,-4px);
-	}
-}
-
-@-webkit-keyframes pulse_tabs {
-	0% {
-		.scale3d(1, 1, 1);
-	}
-
-	50% {
-		.scale3d(1.05, 1.05, 1.05);
-	}
-
-	100% {
-		.scale3d(1, 1, 1);
-	}
-}
-
-@keyframes pulse_tabs {
-	0% {
-		.scale3d(1, 1, 1);
-	}
-
-	50% {
-		.scale3d(1.05, 1.05, 1.05);
-	}
-
-	100% {
-		.scale3d(1, 1, 1);
-	}
-}
-
-@-webkit-keyframes swing_tabs {
-	20% {
-		.rotate3d(0, 0, 1, 15deg);
-	}
-
-	40% {
-		.rotate3d(0, 0, 1, -10deg);
-	}
-
-	60% {
-		.rotate3d(0, 0, 1, 5deg);
-	}
-
-	80% {
-		.rotate3d(0, 0, 1, -5deg);
-	}
-
-	100% {
-		.rotate3d(0, 0, 1, 0deg);
-	}
-}
-
-@keyframes swing_tabs {
-	20% {
-		.rotate3d(0, 0, 1, 15deg);
-	}
-
-	40% {
-		.rotate3d(0, 0, 1, -10deg);
-	}
-
-	60% {
-		.rotate3d(0, 0, 1, 5deg);
-	}
-
-	80% {
-		.rotate3d(0, 0, 1, -5deg);
-	}
-
-	100% {
-		.rotate3d(0, 0, 1, 0deg);
-	}
-}
-
-@-webkit-keyframes zoom_tab {
-	0% {
-		opacity: 0;
-		.scale3d(.3, .3, .3);
-	}
-
-	50% {
-		opacity: 1;
-	}
-}
-
-@keyframes zoom_tab {
-	0% {
-		opacity: 0;
-		.scale3d(.3, .3, .3);
-	}
-
-	50% {
-		opacity: 1;
 	}
 }
 
@@ -1798,24 +1609,24 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 		padding: 10px 55px 10px 15px;
 		
 		.transition(all, 0.2s, linear,0);
-	}
+		
+		&:before{
+		
+			content:'';
+			height: 8px;
+			width: 8px;
+			display: block;
 			
-	.title_info_block:before{
-	
-		content:'';
-		height: 8px;
-		width: 8px;
-		display: block;
-		
-		border: 2px solid #939da9;
-		border-right-width: 0;
-		border-top-width: 0; 
+			border: 2px solid #939da9;
+			border-right-width: 0;
+			border-top-width: 0; 
 
-		.transform_rotate(-45deg);
-		
-		position: absolute;
-		right: 20px;
-		top: 12px;
+			.transform_rotate(-45deg);
+			
+			position: absolute;
+			right: 20px;
+			top: 12px;
+		}
 	}
 	
 	.active_info_block{
@@ -2031,18 +1842,17 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	
 	.title{
 		text-align: left;
-		
 	}
-}
-
-.skills_item:after{
-	.clear();
 }
 
 .skills_item{
 	
 	text-align: left;
 	padding-bottom: 25px;
+	
+	&:after{
+		.clear();
+	}
 	
 	.value{
 		background-color: #eee;
@@ -2166,10 +1976,10 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	
 	width: @width_image_product;
 	height: @height_image_product;
-}
-
-.production_item:after{
-	.clear;
+	
+	&:after{
+		.clear();
+	}
 }
 
 .show_detail{
@@ -2237,34 +2047,34 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	
 	display: none;
 	cursor: pointer;
-}
 
-.close_description:after, .close_description:before{
+	&:after, &:before{
 
-	content: '';
-	display: block;
-	
-	height: 5px;
-	width: 20px;
-	
-	background-color: #000;
-	border-radius: 10px;
-	
-	position: absolute; 
-	top: 16px;
-	left: 0; 
-	
-	.transform_rotate(-45deg);
-	.transition(background-color, .4s, ease-in, 0s);
-}
+		content: '';
+		display: block;
+		
+		height: 5px;
+		width: 20px;
+		
+		background-color: #000;
+		border-radius: 10px;
+		
+		position: absolute; 
+		top: 16px;
+		left: 0; 
+		
+		.transform_rotate(-45deg);
+		.transition(background-color, .4s, ease-in, 0s);
+	}
 
-.close_description:after{
-	.transform_rotate(45deg);
-}
+	&:after{
+		.transform_rotate(45deg);
+	}
 
 
-.close_description:hover:after, .close_description:hover:before{
-	background-color: @color_theme;
+	&:hover:after, &:hover:before{
+		background-color: @color_theme;
+	}
 }
 
 .description_product{
@@ -2403,36 +2213,36 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	box-shadow: none;
 
 	.transition(box-shadow, .2s, linear, 0s );
-}
+	
+	&:-moz-placeholder { 
+		color: 000; 
+		opacity: 1;
+	}
 
-.input_text:-moz-placeholder { 
-	color: 000; 
-	opacity: 1;
-}
+	&::-webkit-input-placeholder{ 
+		color: 000; 
+	}
 
-.input_text::-webkit-input-placeholder{ 
-	color: 000; 
-}
-
-.input_text:focus{
-	outline: 0;
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(180, 180, 180,0.6);
+	&:focus{
+		outline: 0;
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(180, 180, 180,0.6);
+	}
 }
 
 .success{
 	border: 1px solid #44c65d;
-}
-
-.success:focus{
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(33, 193, 63,0.6);
+	
+	&:focus{
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(33, 193, 63,0.6);
+	}
 }
 
 .error{
 	border: 1px solid #ed3748;
-}
 
-.error:focus{
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(237, 55, 72,0.6);
+	&:focus{
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(237, 55, 72,0.6);
+	}
 }
 
 .textarea{
@@ -2456,29 +2266,29 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	padding-left: 40px;
 	cursor: pointer;
 	height: 25px;
-}
-
-.label_checkbox:after {
-
-	content: '';
-	display: block;
 	
-	.transform_checkbox(135deg);
-	.transform_origin(left, top);
-	
-	border-right: 4px solid #cee;
-	border-top: 4px solid #cee;
+	&:after {
 
-	position: absolute;
-	left: 5px;
-	top: 15px;
-	
-	width: 5px;
-	height: 15px;
-}
+		content: '';
+		display: block;
+		
+		.transform_checkbox(135deg);
+		.transform_origin(left, top);
+		
+		border-right: 4px solid #cee;
+		border-top: 4px solid #cee;
 
-.label_checkbox:hover:after {
-	border-color: #bdd;
+		position: absolute;
+		left: 5px;
+		top: 15px;
+		
+		width: 5px;
+		height: 15px;
+	}
+
+	&:hover:after {
+		border-color: #bdd;
+	}
 }
 
 .checkbox {
@@ -2486,10 +2296,9 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 }
 
 .checkbox:checked + label:after{
-	.animation(check, .8s, 0s);
+	.animation(check, .8s, ease, 0s, both);
 	border-color: @color_theme;
 }
-
 
 @-webkit-keyframes check {
 
@@ -2600,16 +2409,16 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	width: 240px;
 	
 	.transition(background, 0.7s, ease-in, 0s)
-}
 
-.button:hover{
-	color: #fff;
-	background: rgba(230, 191, 35, 1);
-}
+	&:hover{
+		color: #fff;
+		background: rgba(230, 191, 35, 1);
+	}
 
-.button:active{
-	top: 1px;
-	box-shadow: 1px 3px 4px #b99815 inset;
+	&:active{
+		top: 1px;
+		box-shadow: 1px 3px 4px #b99815 inset;
+	}
 }
 
 .middle_button{
@@ -2644,24 +2453,24 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 
 	.selected{
 		margin-left: 20px;
-	}
+	
+		&:after{
 
-	.selected:after{
-
-		content: ''; 
-		display: block; 
-		
-		height: 0; 
-		width: 0;
-		
-		border: 5px transparent solid;
-		border-bottom-width: 0; 
-		border-top-color: #333; 
-		
-		float: right;
-		margin: 8px 15px 0 5px;
+			content: ''; 
+			display: block; 
+			
+			height: 0; 
+			width: 0;
+			
+			border: 5px transparent solid;
+			border-bottom-width: 0; 
+			border-top-color: #333; 
+			
+			float: right;
+			margin: 8px 15px 0 5px;
+		}
 	}
-		
+	
 	.checked:after{
 
 		content: ''; 
@@ -2710,133 +2519,133 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	-webkit-appearance: none;
 	margin: 10px 0 30px;
 	width: 100%;
-}
 
-.range:focus {
-  outline: none;
-}
+	&:focus {
+		outline: none;
+	}
 
-.range::-webkit-slider-runnable-track {
+	&::-webkit-slider-runnable-track {
 
-	width: 100%;
-	height: 5px;
-	
-	cursor: pointer;
-	animate: 0.2s;
-	
-	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-	background-color: #eee;
-	border-radius: 25px;
-	border: 0px solid #000101;
-	
-	.transition(background-color, .4s, ease-out, 0s)
-}
+		width: 100%;
+		height: 5px;
+		
+		cursor: pointer;
+		animate: 0.2s;
+		
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+		background-color: #eee;
+		border-radius: 25px;
+		border: 0px solid #000101;
+		
+		.transition(background-color, .4s, ease-out, 0s)
+	}
 
-.range::-webkit-slider-thumb {
+	&::-webkit-slider-thumb {
 
-  
-	width: 29px;
-	height: 29px;
-	
-	margin-top: -15px;
-	
-	background-color: #fff;
-	border-radius: 100%;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-	-webkit-appearance: none;
-	
-}
+	  
+		width: 29px;
+		height: 29px;
+		
+		margin-top: -15px;
+		
+		background-color: #fff;
+		border-radius: 100%;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+		-webkit-appearance: none;
+		
+	}
 
-.range:focus::-webkit-slider-runnable-track {
-	background-color: @color_theme;
-}
+	&:focus::-webkit-slider-runnable-track {
+		background-color: @color_theme;
+	}
 
-.range::-moz-range-track {
+	&::-moz-range-track {
 
-	width: 100%;
-	height: 5px;
-	
-	cursor: pointer;
-	animate: 0.2s;
-	
-	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-	background-color: #eee;
-	border-radius: 25px;
-	border: 0px solid #000101;
-	
-	.transition(background-color, .4s, ease-out, 0s)
-}
+		width: 100%;
+		height: 5px;
+		
+		cursor: pointer;
+		animate: 0.2s;
+		
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+		background-color: #eee;
+		border-radius: 25px;
+		border: 0px solid #000101;
+		
+		.transition(background-color, .4s, ease-out, 0s)
+	}
 
-.range:focus::-moz-range-track {
-	background-color: @color_theme;
-}
+	&:focus::-moz-range-track {
+		background-color: @color_theme;
+	}
 
-.range::-moz-range-thumb {
-  
-	width: 29px;
-	height: 29px;
-	
-	margin-top: -15px;
-	cursor: pointer;
-	background-color: #fff;
-	border-radius: 100%;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
+	&::-moz-range-thumb {
+	  
+		width: 29px;
+		height: 29px;
+		
+		margin-top: -15px;
+		cursor: pointer;
+		background-color: #fff;
+		border-radius: 100%;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	}
 
-.range::-ms-track {
+	&::-ms-track {
 
-	width: 100%;
-	height: 5px;
-	
-	cursor: pointer;
-	animate: 0.2s;
-	
-	background: transparent;
-	border-color: transparent;
-	border-width: 39px 0;
-	color: transparent;
-	
-	.transition(background-color, .4s, ease-out, 0s)
-}
+		width: 100%;
+		height: 5px;
+		
+		cursor: pointer;
+		animate: 0.2s;
+		
+		background: transparent;
+		border-color: transparent;
+		border-width: 39px 0;
+		color: transparent;
+		
+		.transition(background-color, .4s, ease-out, 0s)
+	}
 
-.range::-ms-fill-lower {
+	&::-ms-fill-lower {
 
-	background: #eee;
-	border: 0px solid #000101;
-	border-radius: 50px;
-	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-	
-	.transition(background-color, .4s, ease-out, 0s)
-}
+		background: #eee;
+		border: 0px solid #000101;
+		border-radius: 50px;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+		
+		.transition(background-color, .4s, ease-out, 0s)
+	}
 
-.range::-ms-fill-upper {
+	&::-ms-fill-upper {
 
-	background: #eee;
-	border: 0px solid #000101;
-	border-radius: 50px;
-	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-	
-	.transition(background-color, .4s, ease-out, 0s)
-}
+		background: #eee;
+		border: 0px solid #000101;
+		border-radius: 50px;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+		
+		.transition(background-color, .4s, ease-out, 0s)
+	}
 
-.range::-ms-thumb {
+	&::-ms-thumb {
 
-	width: 29px;
-	height: 29px;
-	
-	cursor: pointer;
-	background-color: #fff;
-	border: 1px solid rgba(0, 0, 0, 0.3);
-	border-radius: 100%;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
+		width: 29px;
+		height: 29px;
+		
+		cursor: pointer;
+		background-color: #fff;
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		border-radius: 100%;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	}
 
-.range:focus::-ms-fill-lower {
-	background: @color_theme;
-}
+	&:focus::-ms-fill-lower {
+		background: @color_theme;
+	}
 
-.range:focus::-ms-fill-upper {
-	background: @color_theme;
+	&:focus::-ms-fill-upper {
+		background: @color_theme;
+	}
 }
 
 /*************switch*************/
@@ -2851,9 +2660,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	display: block;
 	position: relative;
 	cursor: pointer;
-}
-
-.switch_label {
 
 	width: 77px;
 	height: 30px;
@@ -2861,36 +2667,36 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	padding: 2px;	
 	background-color: #dddddd;
 	border-radius: 60px;
-}
 
-.switch_label:before, .switch_label:after {
+	&:before, &:after {
 
-	display: block;
-	content: "";	
-	
-	position: absolute;
-	top: 1px;
-	left: 1px;
-	bottom: 1px;
-}
+		display: block;
+		content: "";	
+		
+		position: absolute;
+		top: 1px;
+		left: 1px;
+		bottom: 1px;
+	}
 
-.switch_label:before {
-	right: 1px;
-	background-color: #f1f1f1;
-	border-radius: 60px;
-	.transition(background, .9s, ease-out, 0s);
-}
+	&:before {
+		right: 1px;
+		background-color: #f1f1f1;
+		border-radius: 60px;
+		.transition(background, .9s, ease-out, 0s);
+	}
 
-.switch_label:after {
+	&:after {
 
-	width: 29px;
-	
-	background-color: #fff;
-	border-radius: 100%;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-	
-	.translate(0,0);
-	.transition(transform, .4s, ease-out, 0s);
+		width: 29px;
+		
+		background-color: #fff;
+		border-radius: 100%;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+		
+		.translate(0,0);
+		.transition(transform, .4s, ease-out, 0s);
+	}
 }
 
 .switch_input:checked + .switch_label:before {
@@ -2932,7 +2738,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	.transition(color, .5s, ease-out, 0s);
 	cursor: pointer;
 }
-
 
 .no_active_star:before, .icon-star:before {
 	color: #000;
@@ -3076,23 +2881,22 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 		
 		text-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 1px;
 		box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
-	}
-
-	.tooltip:after {
-	
-		content: "";
-		width: 0;
-		height: 0;
+		&:after {
 		
-		border-width: 10px;
-		border-style: solid;
-		border-color: #FFFFFF transparent transparent transparent;
-		
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: -24px;
-		margin: auto;
+			content: "";
+			width: 0;
+			height: 0;
+			
+			border-width: 10px;
+			border-style: solid;
+			border-color: #FFFFFF transparent transparent transparent;
+			
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: -24px;
+			margin: auto;
+		}
 	}
 	
 	.green:after{
@@ -3128,24 +2932,25 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 		  
 		  text-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 1px;
 		  box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
-	}
-
-	.tooltip:after {
 	
-		content: "";
-		width: 0;
-		height: 0;
+		&:after {
+		
+			content: "";
+			width: 0;
+			height: 0;
 
-		border-width: 10px;
-		border-style: solid;
-		border-color: transparent transparent #FFFFFF transparent;
+			border-width: 10px;
+			border-style: solid;
+			border-color: transparent transparent #FFFFFF transparent;
 
-		top: -24px;
-		position: absolute;
-		left: 0;
-		right: 0;
-		margin: auto;
+			top: -24px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
 	}
+	
 	.green:after{
 		border-color: transparent transparent #58c255 transparent;
 	}
@@ -3157,8 +2962,6 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 	.blue:after{
 		border-color: transparent transparent #64afdf transparent;
 	}
-	
-	
 }
 
 .arrow_left{
@@ -3180,23 +2983,23 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 		
 		text-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 1px;
 		box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
-	}
 
-	.tooltip:after {
-	
-		content: "";
-		width: 0;
-		height: 0;
+		&:after {
 		
-		border-width: 10px;
-		border-style: solid;
-		border-color: transparent #FFFFFF transparent transparent;
+			content: "";
+			width: 0;
+			height: 0;
+			
+			border-width: 10px;
+			border-style: solid;
+			border-color: transparent #FFFFFF transparent transparent;
 
-		left: -24px;
-		position: absolute;
-		bottom: 0;
-		top: 0;
-		margin: auto;
+			left: -24px;
+			position: absolute;
+			bottom: 0;
+			top: 0;
+			margin: auto;
+		}
 	}
 	
 	.green:after{
@@ -3231,23 +3034,23 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 		
 		text-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 1px;
 		box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 2px 0px;
-	}
-
-	.tooltip:after {
-	
-		content: "";
-		width: 0;
-		height: 0;
 		
-		border-width: 10px;
-		border-style: solid;
-		border-color: transparent transparent transparent #FFFFFF;
+		&:after {
 		
-		position: absolute;
-		bottom: 0;
-		top: 0;
-		margin: auto;
-		right: -24px;
+			content: "";
+			width: 0;
+			height: 0;
+			
+			border-width: 10px;
+			border-style: solid;
+			border-color: transparent transparent transparent #FFFFFF;
+			
+			position: absolute;
+			bottom: 0;
+			top: 0;
+			margin: auto;
+			right: -24px;
+		}
 	}
 	
 	.green:after{
@@ -3322,17 +3125,16 @@ a{
 	color: @color_theme;
 	text-decoration: none;
 	.transition(color, .8s, ease-out, 0s);
-}
-
-a:hover{
-	color: #000;
+	
+	&:hover{
+		color: #000;
+	}
 }
 
 .paragraph{
 	margin-bottom: 20px;
 	line-height: 35px;
 	text-align: left;
-
 }
 
 .post_info{
@@ -3363,12 +3165,12 @@ a:hover{
 	color: #fff;
 	font-size: 14px;
 	
-	.transition(background-color, .5s, ease-out, 0s)
-}
-
-.readmore:hover{
-	color: #fff;
-	background-color: @hover_color_theme;
+	.transition(background-color, .5s, ease-out, 0s);
+	
+	&:hover{
+		color: #fff;
+		background-color: @hover_color_theme;
+	}
 }
 
 .tag{
@@ -3396,6 +3198,27 @@ a:hover{
 	
 	background-color: #fff;
 	.transition(padding, .4s, ease-out, 0s);
+	
+	&:after{
+		.clear();
+	}
+	&:after{
+
+		content: "";
+		display: inline-block;
+		
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		
+		width: 100%;
+		height: 5px;
+		
+		background-color: #fad027;
+		
+		.translate(200%, 0);
+		.transition(transform, .8s, ease-out, .4s);
+	}
 }
 
 #no_touch{
@@ -3407,40 +3230,19 @@ a:hover{
 	}
 }
 
-.header:after{
-	.clear();
-}
-
-.header:after{
-
-	content: "";
-	display: inline-block;
-	
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	
-	width: 100%;
-	height: 5px;
-	
-	background-color: #fad027;
-	
-	.translate(200%, 0);
-	.transition(transform, .8s, ease-out, .4s);
-}
-
 #touch{
 
+	.wrapper_header{
+		height: auto
+	}
+
 	.header{
-		height: 70px;
-	}
 	
-	.header:after {
-		.translate(0%, 0);
-	}
-	
-	.header:after{
-		bottom: 25px;
+		height: 80px;
+				
+		&:after {
+			.translate(0%, 0);
+		}
 	}
 }
 
@@ -3484,7 +3286,6 @@ a:hover{
 /*************form**********/
 
 #form_contact{
-
 	.input_text:focus{
 		box-shadow: inset  0 0 8px rgba(0, 0, 0, 0.8); 
 	}
@@ -3557,6 +3358,7 @@ a:hover{
 		}
 	}
 }
+
 /********footer**********/
  
 .footer{
@@ -3568,6 +3370,9 @@ a:hover{
 	font-size: 15px;
 	color: #fefefe;
 	
+	&:after{
+		.clear();
+	}
 	.copyright{
 		margin-left: 25px;
 	}
@@ -3588,12 +3393,6 @@ a:hover{
 	}
 }
 
-.footer:after{
-	.clear();
-}
-
-
-
 @media screen and (max-width: 640px){ 
 	.footer{
 		
@@ -3608,6 +3407,10 @@ a:hover{
 
 .project{
 
+	&:after{
+		.clear();
+	}
+	
 	.title{
 		text-align: left;
 	}
@@ -3656,10 +3459,6 @@ a:hover{
 	.main_container_item:last-of-type{
 		padding-right: 0;
 	}
-}
-
-.project:after{
-	.clear();
 }
 
 .more_projects{
@@ -3767,11 +3566,7 @@ a:hover{
 		margin: 10px;
 		width: 100px;
 	}
-	
-	#panorama{
-		width: 250px;
-	}
-	
+
 	.pagination{
 		margin-top: 25px;
 	}
