@@ -11,8 +11,18 @@
 
 <!--plugins css-->
 <style>
-.js {background-color: #40c95d;}.css {background-color: #36bae2;}.html{background-color: #d7d93f;}.project_item {color: #fff;font-size: 18px;position: absolute;top: 50%;left: 50%;-webkit-transform: translateZ(0) translate(-50%, -50%);-ms-transform: translateZ(0) translate(-50%, -50%);transform: translateZ(0) translate(-50%, -50%);}
-.main_container_plugins {margin: 0 auto;padding: 35px 20px 0;text-align: center;min-width: 100px;max-width: 1200px;}.main_container_plugins  .main_container_item {width: 100px;padding: 1%;height: 250px;position: relative;display: inline-block;line-height: 25px;vertical-align: top;}.main_container_plugins.columns3 .main_container_item {width: 30%;margin: 0 5px 20px;}.main_container_plugins  .img_post {height: auto; max-width: 100%; border: 9px solid #eee;}@media screen and (max-width: 640px){.main_container_plugins.columns3 .main_container_item { width: 90%;}}
+	.js {background-color: #40c95d;color: #000;}
+	.css {background-color: #36bae2;color: #000;}
+	.html{background-color: #d7d93f;color: #000;}
+	.project_item {color: #fff;font-size: 18px;position: absolute;top: 50%;left: 50%;-webkit-transform: translateZ(0) translate(-50%, -50%);-ms-transform: translateZ(0) translate(-50%, -50%);transform: translateZ(0) translate(-50%, -50%);}
+	.main_container_plugins {margin: 0 auto;padding: 35px 20px 0;text-align: center;min-width: 100px;max-width: 1200px;}
+	.main_container_plugins  .main_container_item {width: 100px;padding: 1%;height: 250px;position: relative;display: inline-block;line-height: 25px;vertical-align: top;}
+	.main_container_plugins.columns3 .main_container_item {width: 30%;margin: 0 5px 20px;}
+	.main_container_plugins  .img_post {height: auto; max-width: 100%; border: 9px solid #eee;}
+	.main_container_plugins.columns4 .main_container_item {width: 22%;margin: 0 2px 20px;}
+	@media screen and (max-width: 640px){.main_container_plugins.columns3 .main_container_item { width: 90%;}}
+	@media screen and (max-width: 900px){.main_container_plugins.columns4 .main_container_item { width: 46%;}}
+	@media screen and (max-width: 640px){.main_container_plugins.columns4 .main_container_item { width: 90%;}}
 </style>
 </head>
 <body class="active_preloader">
@@ -120,37 +130,57 @@
 			</div>
 		</div>
 	</section>
-	<section id="works_portfolio" class="main_container_plugins columns3">
+	<section id="works_portfolio" class="main_container_plugins columns4">
 		<h2 class="title">Works</h2>
 		<a href="http://stas-melnikov.ru/layered_responsive_modal_window/" target="blank" class="main_container_item project js">
 			<h3 class="project_item">Responsive modal window</h3>
+			<span class="hashtag">jQuery</span>
+			<span class="price">7$</span>
 		</a>
 		<a href="http://stas-melnikov.ru/preloaders/" target="blank" class="main_container_item project css">
 			<h3 class="project_item">Preloaders</h3>
+			<span class="hashtag">CSS</span>
+			<span class="price">4$</span>
 		</a>
 		<a href="http://stas-melnikov.ru/webgl_generator_3dmodels/" target="blank" class="main_container_item project js">
 			<h3 class="project_item">WebGL Generator of Models</h3>
+			<span class="hashtag">ThreeJS</span>
+			<span class="price">9$</span>
 		</a>
 		<a href="http://stas-melnikov.ru/themes/responsive_ux_template/" target="blank" class="main_container_item project html">
 			<h3 class="project_item">Responsive UX template</h3>
+			<span class="hashtag">HTML5</span>
+			<span class="price">FREE</span>
 		</a>
 		<a href="http://stas-melnikov.ru/3d_panorama/" target="blank" class="main_container_item project js">
 			<h3 class="project_item">3d Panorams</h3>
+			<span class="hashtag">ThreeJS</span>
+			<span class="price">8$</span>
 		</a>
 		<a href="http://stas-melnikov.ru/material_table/" target="blank" class="main_container_item project css">
 			<h3 class="project_item">Material responsive table</h3>
+			<span class="hashtag">CSS</span>
+			<span class="price">4$</span>
 		</a>
 		<a href="http://stas-melnikov.ru/responsive_elements/" target="blank" class="main_container_item project js">
 			<h3 class="project_item">Responsive Framework</h3>
+			<span class="hashtag">PureJS</span>
+			<span class="price">9$</span>
 		</a>
 		<a href="http://stas-melnikov.ru/material_bootstrap_theme/" target="blank" class="main_container_item project css">
 			<h3 class="project_item">Material design for Bootstrap 3</h3>
+			<span class="hashtag">CSS</span>
+			<span class="price">FREE</span>
 		</a>
 		<a href="http://stas-melnikov.ru/library-of-plugins/" target="blank" class="main_container_item project js">
 			<h3 class="project_item">Library of plugins</h3>
+			<span class="hashtag">jQuery</span>
+			<span class="price">FREE</span>
 		</a>
 		<a href="http://stas-melnikov.ru/magic_layout/" target="blank" class="main_container_item project js">
 			<h3 class="project_item">Magic Layout</h3>
+			<span class="hashtag">jQuery</span>
+			<span class="price">FREE</span>
 		</a>
 	</section>
 	<section id="feedback" class="wrapper_form">
