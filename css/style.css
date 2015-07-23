@@ -1068,8 +1068,8 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
 .main_container_item .img_production {
   max-width: 92%;
 }
-.hashtag,
-.price {
+.stas_project_hashtag,
+.stas_project_price {
   position: absolute;
   top: 0;
   right: 0;
@@ -1079,7 +1079,7 @@ Template created with use of a Responsive Framework http://stas-melnikov.ru/resp
   width: 70px;
   background-color: #fff;
 }
-.price {
+.stas_project_price {
   top: 30px;
 }
 .columns2 .main_container_item {
@@ -2733,48 +2733,48 @@ a:hover {
   }
 }
 /********************Project************/
-.project:after {
+.stas_project:after {
   content: "";
   display: block;
   clear: both;
 }
-.project .title {
+.stas_project .title {
   text-align: left;
 }
-.project .img_project {
+.stas_project .img_project {
   max-width: 100%;
   height: auto;
 }
-.project .content_project {
+.stas_project .content_project {
   width: 100%;
 }
-.project .content_project:after {
+.stas_project .content_project:after {
   content: "";
   display: block;
   clear: both;
 }
-.project .description_project {
+.stas_project .description_project {
   float: left;
   width: 70%;
   padding-top: 45px;
   text-align: left;
 }
-.project .right_column {
+.stas_project .right_column {
   float: right;
   width: 28%;
   padding-top: 45px;
 }
-.project .more_projects {
+.stas_project .more_projects {
   text-align: left;
   padding-top: 45px;
 }
-.project .main_container_item {
+.stas_project .main_container_item {
   text-align: center;
 }
-.project .main_container_item:first-of-type {
+.stas_project .main_container_item:first-of-type {
   padding-left: 0;
 }
-.project .main_container_item:last-of-type {
+.stas_project .main_container_item:last-of-type {
   padding-right: 0;
 }
 .more_projects .title_post {
