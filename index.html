@@ -293,7 +293,7 @@
 			</li>
 		</ul>
 	</div>
-<script src="core/js/min/app.min.js"></script>
+<script async src="core/js/min/app.min.js"></script>
 <script>
 (function(){
 
@@ -301,12 +301,17 @@
 		{
 			src: "//yastatic.net/share/share.js",
 			async: true,
+		},
+		{
+			src : "../../metrika.js",
+			async: true,
 		}
+		
 	],
 	
 	scripts_len = scripts.length;
 
-	//window.addEventListener('load', init(scripts));
+	window.addEventListener('load', init(scripts));
 	
 	function init(scripts){
 	

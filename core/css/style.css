@@ -291,7 +291,7 @@ p {
 }
 @media screen and (max-width: 640px) {
   .logo {
-    font-size: 14px;
+    font-size: 20px;
   }
 }
 /*
@@ -531,6 +531,13 @@ p {
   color: #ffffff;
   font-size: 46px;
   font-style: italic;
+}
+@media screen and (max-width: 1200px) {
+  .fullwidth-banner__inner {
+    width: 100%;
+    margin-top: 30px;
+    font-size: 38px;
+  }
 }
 /*
  *skills
