@@ -11,7 +11,7 @@ var ResponsiveUX = {
 	
 	initMap: function(){
 			
-		var mapCanvas = document.getElementById('map'),
+		var mapCanvas = document.getElementById("map"),
 		mapOptions ={
 			center: new google.maps.LatLng(53.186162, 45.00961),
 			zoom: 17,
@@ -31,7 +31,7 @@ var ResponsiveUX = {
 	init: function(){
 		
 		var script = document.createElement("script"),
-		body = $('body');
+		body = $("body");
 		
 		script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDEN_8Sph4q9GwhWKKnsOP5bl4Frwyo3aM&amp;sensor=false&callback=ResponsiveUX.initMap";
 		script.async = true;
@@ -59,13 +59,13 @@ var ResponsiveUX = {
 			var	target = $(this).attr('href'),
 			position = ($(target).offset().top) - 90; 
 			
-			if($(this).hasClass('mobile-menu__link')){
+			if($(this).hasClass("mobile-menu__link")){
 				
-				body.removeClass('fullscreen-menu');
+				body.removeClass("fullscreen-menu");
 
 			}
 			
-			body.animate({scrollTop: position}, 800);
+			$("html, body").animate({scrollTop: position}, 800);
 			
 		});		
 	}
