@@ -1,5 +1,8 @@
 # responsive-UX-theme
-Responsive UX template-is the modern and responsive html template. It is developed with of Responsive framework and, meets all modern requirements in web development. Throughout the process of creation the following web technologies were used: HTML5, CSS3, SVG. The responsive grid, responsive accordion, responsive tabs and many other components are also included in this list. Responsive UX template comes with detailed documentation, which makes development fast, easy and, convenient.
+Responsive UX template-is the modern and responsive html a template. It was developed by means of <a href="http://stas-melnikov.ru/responsive_elements">Responsive framework</a>. The template responds all
+the modern of the requirement. In case of creation were used next technologies were used: HTML5, CSS3. Also in it
+the responsive grid, css3 animation and many other components are included. It is prepared documentation is qualitative,
+which will help you to use it.
 # DEMO
 <a href="http://stas-melnikov.ru/themes/responsive_ux_template">http://stas-melnikov.ru/themes/responsive_ux_template</a>
 #Help(Donate)
