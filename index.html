@@ -7,303 +7,293 @@
 <meta name="keywords" content="responsive framework, UI templates, mobile template html5, responsive template, responsive theme, 3d panorama" />
 <meta name="author" content="Stas Melnikov" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="core/css/style.css" type="text/css" media="screen"/>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
 
-<!--plugins css-->
-<style>
-	.stas_project_js {background-color: #40c95d;color: #000;}
-	.stas_project_css {background-color: #36bae2;color: #000;}
-	.stas_project_html{background-color: #d7d93f;color: #000;}
-	.stas_project_item {color: #fff;font-size: 18px;position: absolute;top: 50%;left: 50%;-webkit-transform: translateZ(0) translate(-50%, -50%);-ms-transform: translateZ(0) translate(-50%, -50%);transform: translateZ(0) translate(-50%, -50%);}
-	.main_container_plugins {margin: 0 auto;padding: 35px 20px 0;text-align: center;min-width: 100px;max-width: 1200px;}
-	.main_container_plugins  .main_container_item {width: 100px;padding: 1%;height: 250px;position: relative;display: inline-block;line-height: 25px;vertical-align: top;}
-	.main_container_plugins.columns3 .main_container_item {width: 30%;margin: 0 5px 20px;}
-	.main_container_plugins  .img_post {height: auto; max-width: 100%; border: 9px solid #eee;}
-	.main_container_plugins.columns4 .main_container_item {width: 22%;margin: 0 2px 20px;}
-	@media screen and (max-width: 640px){.main_container_plugins.columns3 .main_container_item { width: 90%;}}
-	@media screen and (max-width: 900px){.main_container_plugins.columns4 .main_container_item { width: 46%;}}
-	@media screen and (max-width: 640px){.main_container_plugins.columns4 .main_container_item { width: 90%;}}
-</style>
 </head>
-<body class="active_preloader">
-<div class="background_preloader"><div class="wrapper_preloader"><div class="preloader left_round"></div><div class="preloader right_round"></div></div></div>
-<div class="wrapper_header" id="home">
-	<header class="container header">
-		<a href="#home" class="logo"><h1>Responsive UX <span class="logo_item">template</span></h1></a>
-		<nav id="wrapper_menu" class="wrapper_menu">	
-			<span id="icon_menu" class="position_right" data-effect="slide_top" data-menu="drop_down_block">&nbsp;</span>
-			<ul class="menu" id="scroll_menu">
-				<li class="menu_item">
-					<a href="#about" class="menu_link scroller_link">About<span class="line_bottom">&nbsp;</span></a>
-				</li>
-				<li class="menu_item">
-					<a href="#works_portfolio" class="menu_link scroller_link">Works<span class="line_bottom">&nbsp;</span></a>
-				</li>
-				<li class="menu_item">
-					<a href="#feedback" class="menu_link scroller_link">Feedback<span class="line_bottom">&nbsp;</span></a>
-				</li>
-				<li class="menu_item">
-					<a href="#contacts" class="menu_link scroller_link">Contacts<span class="line_bottom">&nbsp;</span></a>
-				</li>
-				<li class="menu_item">
-					<a href="doc/index.html" class="menu_link">Doc<span class="line_bottom">&nbsp;</span></a>
-				</li>
-				<li class="menu_item">
-					<a href="https://github.com/melnik909/responsive-UX-theme" class="menu_link">GitHub<span class="line_bottom">&nbsp;</span></a>
-				</li>
-				<li class="menu_item wrapper_drop_down_block">
-					<a href="#" class="menu_link">Pages</a>
-					<ul class="drop_down_block">
-						<li class="drop_down_menu_item"><a class="drop_down_menu_link" href="shortcodes.html">Shortcodes</a></li>
-						<li class="drop_down_menu_item"><a class="drop_down_menu_link" href="blog.html">Blog</a></li>
-					</ul>
-				</li>
-				<li class="menu_item wrapper_drop_down_block">
-					<a href="#" class="menu_link">Portfolio</a>
-					<ul class="drop_down_block">
-						<li class="drop_down_menu_item"><a class="drop_down_menu_link" href="portfolio3.html">3 Columns</a></li>
-						<li class="drop_down_menu_item"><a class="drop_down_menu_link" href="portfolio4.html">4 Columns</a></li>
-						<li class="drop_down_menu_item"><a class="drop_down_menu_link" href="dynamic_portfolio.html">Dynamic portfolio</a></li>
-						<li class="drop_down_menu_item"><a class="drop_down_menu_link" href="project.html">Single Project</a></li>
-						<li class="drop_down_menu_item"><a class="drop_down_menu_link" target="blank"  href="http://stas-melnikov.ru/3d_panorama/">3d Single Project</a></li>
-					</ul>
-				</li>
-			</ul>
-		</nav>	
-	</header>
-</div>
-<div id="slideshow">
-	<span class="arrow prev"  id="leftControl"></span>
-	<div id="slidesContainer" >
-		<div id="slideInner">
-			<div id="slide1" class="slide active_slide">
-				<div class="layer scale icon_slide"></div>
-				<p class="layer slide_info slide_right">
-					I've seen the <span class="decor"> future</span>
-				</p>
-				<p class="layer slide_info slide_left paragraph_two">
-					It's in my <span class="decor"> Browser</span>
-				</p>
-			</div>
-			<div id="slide2" class="slide">
-				<div class="layer slide_top icon_slide"></div>
-				<p class="layer slide_info flipY">
-					delightful<span class="decor"> animations</span>
-				</p>
-				<p class="layer slide_info slide_bottom paragraph_two">
-					In your<span class="decor"> devices</span>
-				</p>
-			</div>
-			<div id="slide3" class="slide">
-				<div class="layer slide_bottom icon_slide"></div>
-				<p class="layer slide_info slide_left">
-					Create interactive<span class="decor"> interfaces</span>
-				</p>
-				<p class="layer slide_info scale paragraph_two">
-					Bring joy
-				</p>
-			</div>
-		</div>
+<body class="preloader_active">
+	<div class="header" id="home">
+		<header class="container">
+			<h1 class="logo">Responsive UX <span class="logo__item">template</span></h1>
+			<nav id="menu" class="menu">	
+				<div class="menu__icon">&nbsp;</div>
+				<ul class="menu-list">
+					<li class="menu-list__item">
+						<a href="#about" class="menu__link scroll_js">About</a>
+					</li>
+					<li class="menu-list__item">
+						<a href="#projects" class="menu__link scroll_js">Projects</a>
+					</li>
+					<li class="menu-list__item">
+						<a href="#blog" class="menu__link scroll_js">Blog</a>
+					</li>
+					<li class="menu-list__item">
+						<a href="#contacts" class="menu__link scroll_js">Contacts</a>
+					</li>
+					<li class="menu-list__item">
+						<a href="https://github.com/melnik909/responsive-UX-theme" class="menu__link">GitHub</a>
+					</li>
+				</ul>
+			</nav>	
+		</header>
 	</div>
-	<span class="arrow next"  id="rightControl"></span>
-</div>	
-<section id="about" class="main_container columns3">
-		<h3 class="title">About</h3>
-		<p class="paragraph">
-			Responsive UX template-is the modern and responsive html a template. It was developed by means of <a href="http://stas-melnikov.ru/responsive_elements/index.html">Responsive framework</a>. The template responds all
-			the modern of the requirement. In case of creation were used next technologies were used: HTML5, CSS3, WebGl, SVG. Also in it
-			the responsive grid, responsive accordion, responsive tabs and many other components are included. It is prepared documentation is qualitative,
-			which will help you to use it.
-		</p>
-		<div class="skills">
-			<div class="skills_item">
-				<div class="skill">HTML5/CSS3/JS</div>
-				<div class="value blue"></div>
-			</div>
-			<div class="skills_item">
-				<div class="skill">Design</div>
-				<div class="value green"></div>
-			</div>
-			<div class="skills_item">
-				<div class="skill">Mobile</div>
-				<div class="value yellow"></div>
+	<div class="fullwidth-banner wrapper wrapper_decor">
+		<div class="container">
+			<img class="fullwidth-banner__img" src="core/images/html5.png" alt="html5 icon" />
+			<div class="fullwidth-banner__inner">
+				I've seen the FUTURE<br> It's in my BROWSER
 			</div>
 		</div>
-	</section>
-	<section id="works_portfolio" class="main_container_plugins columns4">
-		<h2 class="title">Works</h2>
-		<a href="http://stas-melnikov.ru/the-animated-flask-css3/" target="blank" class="main_container_item stas_project stas_project_css">
-			<h3 class="stas_project_item">The animated flask</h3>
-			<span class="stas_project_hashtag">CSS</span>
-			<span class="stas_project_price">FREE</span>
-		</a>
-		<a href="http://stas-melnikov.ru/animated_alert/" target="blank" class="main_container_item stas_project stas_project_js">
-			<h3 class="stas_project_item">Animated alerts</h3>
-			<span class="stas_project_hashtag">jQuery</span>
-			<span class="stas_project_price">5$</span>
-		</a>
-		<a href="http://stas-melnikov.ru/hovers/" target="blank" class="main_container_item stas_project stas_project_css">
-			<h3 class="stas_project_item">Hovers effects</h3>
-			<span class="stas_project_hashtag">CSS</span>
-			<span class="stas_project_price">8$</span>.
-		</a>
-		<a href="http://stas-melnikov.ru/layered_responsive_modal_window/" target="blank" class="main_container_item stas_project stas_project_js">
-			<h3 class="stas_project_item">Responsive modal window</h3>
-			<span class="stas_project_hashtag">jQuery</span>
-			<span class="stas_project_price">7$</span>
-		</a>
-		<a href="http://stas-melnikov.ru/webgl_generator_3dmodels/" target="blank" class="main_container_item stas_project stas_project_js">
-			<h3 class="stas_project_item">WebGL Generator of Models</h3>
-			<span class="stas_project_hashtag">ThreeJS</span>
-			<span class="stas_project_price">9$</span>
-		</a>
-		<a href="http://stas-melnikov.ru/preloaders/" target="blank" class="main_container_item stas_project stas_project_css">
-			<h3 class="stas_project_item">Preloaders</h3>
-			<span class="stas_project_hashtag">CSS</span>
-			<span class="stas_project_price">4$</span>
-		</a>
-		<a href="http://stas-melnikov.ru/3d_panorama/" target="blank" class="main_container_item stas_project stas_project_js">
-			<h3 class="stas_project_item">3d Panorams</h3>
-			<span class="stas_project_hashtag">ThreeJS</span>
-			<span class="stas_project_price">8$</span>
-		</a>
-		<a href="http://stas-melnikov.ru/material_table/" target="blank" class="main_container_item stas_project stas_project_css">
-			<h3 class="stas_project_item">Material responsive table</h3>
-			<span class="stas_project_hashtag">CSS</span>
-			<span class="stas_project_price">4$</span>
-		</a>
-		<a href="http://stas-melnikov.ru/responsive_elements/" target="blank" class="main_container_item stas_project stas_project_js">
-			<h3 class="stas_project_item">Responsive Framework</h3>
-			<span class="stas_project_hashtag">PureJS</span>
-			<span class="stas_project_price">9$</span>
-		</a>
-		<a href="http://stas-melnikov.ru/iphone/" target="blank" class="main_container_item stas_project stas_project_js">
-			<h3 class="stas_project_item">3D model Iphone</h3>
-			<span class="stas_project_hashtag">ThreeJS</span>
-			<span class="stas_project_price">4$</span>
-		</a>
-		<a href="http://stas-melnikov.ru/material_bootstrap_theme/" target="blank" class="main_container_item stas_project stas_project_css">
-			<h3 class="stas_project_item">Material design for Bootstrap 3</h3>
-			<span class="stas_project_hashtag">CSS</span>
-			<span class="stas_project_price">FREE</span>
-		</a>
-		<a href="http://stas-melnikov.ru/car/" target="blank" class="main_container_item stas_project stas_project_js">
-			<h3 class="stas_project_item">3D model Nissan</h3>
-			<span class="stas_project_hashtag">ThreeJS</span>
-			<span class="stas_project_price">4$</span>
-		</a>
-		<a href="http://stas-melnikov.ru/library-of-plugins/" target="blank" class="main_container_item stas_project stas_project_js">
-			<h3 class="stas_project_item">Library of plugins</h3>
-			<span class="stas_project_hashtag">jQuery</span>
-			<span class="stas_project_price">FREE</span>
-		</a>
-		<a href="http://stas-melnikov.ru/magic_layout/" target="blank" class="main_container_item stas_project stas_project_js">
-			<h3 class="stas_project_item">Magic Layout</h3>
-			<span class="stas_project_hashtag">jQuery</span>
-			<span class="stas_project_price">FREE</span>
-		</a>
-	</section>
-	<section id="feedback" class="wrapper_form">
-		<h2 class="title">Feedback</h2>
-		<form class="form" id="form_contact">
-			<div class="left_column">
-				<input type="text" id="full_name" name="full_name" class="input_text" placeholder="Name"  required />
-				<input class="input_text" type="email" id="email"  name="email" placeholder="Email" required />
-				<div id="rating" class="element_form">
-					<div class="wrapper_stars">
-						<span class="icon-star"></span>
-						<span class="icon-star"></span>
-						<span class="icon-star"></span>
-						<span class="icon-star"></span>
-						<span class="icon-star"></span>
-						
+	</div>	
+	<section id="about" class="about wrapper">
+		<div class="container">
+			<h3 class="title">About</h3>
+			<div class="floatbox floatbox_column2">
+				<div class="floatbox__item">
+					<p>
+						Responsive UX template-is the modern and responsive html a template. It was developed by means of <a href="http://stas-melnikov.ru/responsive_elements/index.html">Responsive framework</a>. The template responds all
+						the modern of the requirement. In case of creation were used next technologies were used: HTML5, CSS3. Also in it
+						the responsive grid, css3 animation and many other components are included. It is prepared documentation is qualitative,
+						which will help you to use it.
+					</p>
+				</div>
+				<div class="floatbox__item skills">
+					<div class="skills__item">
+						<div class="skill">Documentation</div>
+						<div class="skill-value skill-value_blue"></div>
 					</div>
-					<input type="hidden" id="total_rating" />
-					<p class="paragraph">Your rating: <span id="total_value">0</span></p>
+					<div class="skills__item">
+						<div class="skill">Design</div>
+						<div class="skill-value skill-value_green"></div>
+					</div>
+					<div class="skills__item">
+						<div class="skill">Mobile</div>
+						<div class="skill-value skill-value_yellow"></div>
+					</div>
 				</div>
 			</div>
-			<textarea class="input_text textarea" id="comment" name="comment" placeholder="Review" required></textarea>
-			<button type="submit" id="button" class="button" disabled="disabled">send</button>
+		</div>	
+	</section>
+	<section id="projects" class="wrapper list-works">
+		<div class="container">
+			<h2 class="title">Projects</h2>
+			<div class="list-works display-ib-container display-ib-container_4columns">
+				<a href="http://stas-melnikov.ru/the-animated-flask-css3/" target="blank" class="list-works__item display-ib-container__item">
+					<img src="http://stas-melnikov.ru/cliparts/notebook_640x640.jpg" class="list-works__img" alt="Work" />
+					<div class="list-works__overlay"> 
+						<span class="name-project">The animated flask</span>
+					</div>
+				</a>
+				<a href="http://stas-melnikov.ru/animated_alert/" target="blank" class="list-works__item display-ib-container__item">
+					<img src="http://stas-melnikov.ru/cliparts/notebook5_640x640.jpg" class="list-works__img" alt="Work" />
+					<div class="list-works__overlay"> 
+						<span class="name-project">Animated alerts</span>
+					</div>
+				</a>
+				<a href="http://stas-melnikov.ru/hovers/" target="blank" class="list-works__item display-ib-container__item">
+					<img src="http://stas-melnikov.ru/cliparts/notebook3_640x640.jpg" class="list-works__img" alt="Work" />
+					<div class="list-works__overlay"> 
+						<span class="name-project">Hovers Effects</span>
+					</div>
+				</a>
+				<a href="http://stas-melnikov.ru/preloaders/" target="blank" class="list-works__item display-ib-container__item">
+					<img src="http://stas-melnikov.ru/cliparts/notebook2_640x640.jpg" class="list-works__img" alt="Work" />
+					<div class="list-works__overlay"> 
+						<span class="name-project">Preloaders</span>
+					</div>
+				</a>
+				<a href="http://stas-melnikov.ru/webgl_generator_3dmodels/" target="blank" class="list-works__item display-ib-container__item">
+					<img src="http://stas-melnikov.ru/cliparts/notebook_640x640.jpg" class="list-works__img" alt="Work" />
+					<div class="list-works__overlay"> 
+						<span class="name-project">WebGL Generator of Models</span>
+					</div>
+				</a>
+				<a href="http://stas-melnikov.ru/3d_panorama/" target="blank" class="list-works__item display-ib-container__item">
+					<img src="http://stas-melnikov.ru/cliparts/notebook5_640x640.jpg" class="list-works__img" alt="Work" />
+					<div class="list-works__overlay"> 
+						<span class="name-project">3d Panorams</span>
+					</div>
+				</a>
+				<a href="http://stas-melnikov.ru/material_table/" target="blank" class="list-works__item display-ib-container__item">
+					<img src="http://stas-melnikov.ru/cliparts/notebook2_640x640.jpg" class="list-works__img" alt="Work" />
+					<div class="list-works__overlay"> 
+						<span class="name-project">Material responsive table</span>
+					</div>
+				</a>
+				<a href="http://stas-melnikov.ru/layered_responsive_modal_window/" target="blank" class="list-works__item display-ib-container__item">
+					<img src="http://stas-melnikov.ru/cliparts/notebook3_640x640.jpg" class="list-works__img" alt="Work" />
+					<div class="list-works__overlay"> 
+						<span class="name-project">Responsive modal window</span>
+					</div>
+				</a>
+				<a href="http://stas-melnikov.ru/responsive_elements/" target="blank" class="list-works__item display-ib-container__item">
+					<img src="http://stas-melnikov.ru/cliparts/notebook3_640x640.jpg" class="list-works__img" alt="Work" />
+					<div class="list-works__overlay"> 
+						<span class="name-project">Responsive Framework</span>
+					</div>
+				</a>
+				<a href="http://stas-melnikov.ru/iphone/" target="blank" class="list-works__item display-ib-container__item">
+					<img src="http://stas-melnikov.ru/cliparts/notebook_640x640.jpg" class="list-works__img" alt="Work" />
+					<div class="list-works__overlay"> 
+						<span class="name-project">3D model Iphone</span>
+					</div>
+				</a>
+				<a href="http://stas-melnikov.ru/car/" target="blank" class="list-works__item display-ib-container__item">
+					<img src="http://stas-melnikov.ru/cliparts/notebook2_640x640.jpg" class="list-works__img" alt="Work" />
+					<div class="list-works__overlay"> 
+						<span class="name-project">3D model Nissan</span>
+					</div>
+				</a>
+			</div>	
+		</div>	
+	</section>
+	<section id="blog" class="wrapper">
+		<div class="container">
+			<h2 class="title">Blog</h2>
+			<div class="posts display-ib-container_2columns">
+				<article class="article">
+					<h2 class="article__title">
+						<a href="#" class="article__readmore">Magic layout - JQuery plugin for animate blocks</a>
+					</h2>
+					<a href="project.html" class="hover_circle">
+						<img class="article__img" src="http://stas-melnikov.ru/cliparts/notebook3_1200x800.jpg" alt="project" /> 
+					</a>
+					<div class="article__date">
+						<div class="article__day">15</div>
+						<div class="article__month">May</div>
+					</div>
+					<div class="article__date article__date_additional">
+						<div class="article__day">15</div>
+						<div class="article__month">May</div>
+					</div>
+					<div class="article__content">
+						<p>
+							I recently decided to update my website with portfolio. I wanted to create something memorable and spectacular. I had the idea to make an animation of all basic blocks, every block had to come through animation. The result is this. But I decided that this approach is suitable for a variety of websites and decided to make a simple JQuery-plugin. I want to tell about it.					
+						</p>
+					</div>
+					<div class="article__footer">
+						<div class="article__author">
+							<span class="article__label"><i class="icon-user"></i>Stas Melnikov</span>
+						</div>
+						<div class="article__tags">
+							<span class="article__label"><i class="icon-tag"></i>Tags:</span>
+							<span class="article__tag">Open-Source</span>
+							<span class="article__tag">Jquery</span>
+							<span class="article__tag">Animation</span>
+						</div>
+					</div>
+				</article>
+				<article class="article display-ib-container__item">
+					<a href="project.html" class="hover_circle">
+						<img class="article__img" src="http://stas-melnikov.ru/cliparts/clipart_1200x800.jpg" alt="project" /> 
+					</a>
+					<div class="article__date article__date_additional">
+						<div class="article__month">May</div>
+						<div class="article__day">2</div>
+					</div>
+					<div class="article__header">
+						<div class="article__author">
+							<span class="article__label"><i class="icon-user"></i>Stas Melnikov</span>
+						</div>
+						<div class="article__tags">
+							<span class="article__label"><i class="icon-tag"></i>Tags:</span>
+							<span class="article__tag">Open-Source</span>
+							<span class="article__tag">Jquery</span>
+							<span class="article__tag">Front-end</span>
+							<span class="article__tag">CSS3</span>
+						</div>
+					</div>
+					<h2 class="article__title article__title_middle">
+						<a href="#" class="article__readmore">Library-of-plugins is a collection of ready-made decisions for front-end development</a>
+					</h2>
+					<div class="article__date">
+						<div class="article__day">2</div>
+						<div class="article__month">May</div>
+					</div>
+					<div class="article__content">
+						<p>
+							They will help you to faster your development, to add functionality and to decorate the interface. It is ok for beginners and professionals. I hope this collection will help you. If you have any questions you can connect with me to social networks.
+						</p>
+					</div>
+				</article>
+				<article class="article display-ib-container__item">
+					<a href="project.html" class="hover_circle">
+						<img class="article__img" src="http://stas-melnikov.ru/cliparts/notebook_1200x800.jpg" alt="project" /> 
+					</a>
+					<div class="article__date article__date_additional">
+						<div class="article__month">Apr</div>
+						<div class="article__day">15</div>
+					</div>
+					<div class="article__header">
+						<div class="article__author">
+							<span class="article__label"><i class="icon-user"></i>Stas Melnikov</span>
+						</div>
+						<div class="article__tags">
+							<span class="article__label"><i class="icon-tag"></i>Tags:</span>
+							<span class="article__tag">Bootstrap</span>
+							<span class="article__tag">Material Design</span>
+						</div>
+					</div>
+					<h2 class="article__title article__title_middle">
+						<a href="#" class="article__readmore">Material design for Bootstrap 3</a>
+					</h2>
+					<div class="article__date">
+						<div class="article__day">15</div>
+						<div class="article__month">Apr</div>
+					</div>
+					<div class="article__content">
+						<p>
+							Material Design Bootstrap 3. Today we review Material Design Bootstrap 3 theme. This theme is a new skin for your website, in case if your website is built with the Bootstrap framework 3. The theme doesn’t affect the Bootstrap core. For ease of use – LESS/SASS version is provided. The standard class names are not changed, for maximum compatibility with the framework.
+						</p>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+	<div id="contacts" class="contacts">
+		<section class="contacts__info">
+			<h3 class="title_middle">Address:</h3>
+			<p>DevLab Pro, Russian Federation, Penza, Karla Marks 16</p>
+		</section>
+		<div id="map"></div>
+	</div>
+	<footer class="footer">
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="NN4W5TKX2S4AW">
+			<button style="display: block;float: left; margin: 0 15px 10px 0;padding: 8px 15px; border:1px solid #fff; color: #fff;border-radius: 5px;cursor: pointer;background-color: rgba(0,0,0,0)">Donate</button>
 		</form>
-	</section>
-<div id="contacts" class="contacts">
-	<section class="contacts_item">
-		<h3 class="title">Address:</h3>
-		<p class="paragraph">DevLab Pro, Russian Federation, Penza, Karla Marks 16</p>
-	</section>
-	<div id="map"></div>
-</div>
-<footer class="footer">
-	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-		<input type="hidden" name="cmd" value="_s-xclick">
-		<input type="hidden" name="hosted_button_id" value="NN4W5TKX2S4AW">
-		<button style="display: block;float: left; margin: 0 15px 10px 0;padding: 8px 15px; border:1px solid #fff; color: #fff;border-radius: 5px;cursor: pointer;background-color: rgba(0,0,0,0)">Donate</button>
-	</form>
-	<div class="social footer_left_column">
-		<div class="yashare-auto-init" data-yashareL10n="en" data-yashareType="small" data-yashareQuickServices="facebook,twitter,gplus" data-yashareTheme="counter"></div>
+		<div class="social footer__left-column">
+			<div class="yashare-auto-init" data-yashareL10n="en" data-yashareType="small" data-yashareQuickServices="facebook,twitter,gplus" data-yashareTheme="counter"></div>
+		</div>
+		<div class="footer__right-column">
+			<a href="https://www.linkedin.com/in/melnik909" class="footer__link" target="blank">Developed by Stas Melnikov</a>
+		</div>
+	</footer>
+	<div class="mpc_preloader">
+		<div class="mpc_preloader9"></div>
 	</div>
-	<div class="footer_right_column">
-		<a href="https://www.linkedin.com/in/melnik909" class="link" target="blank">Developed by Stas Melnikov</a>
+	<div class="mobile-menu">
+		<span class="menu-close">+</span>
+		<ul class="mobile-menu-list">
+			<li class="mobile-menu-list_item">
+				<a href="#about" class="mobile-menu__link scroll_js">About</a>
+			</li>
+			<li class="mobile-menu-list_item">
+				<a href="#projects" class="mobile-menu__link scroll_js">Projects</a>
+			</li>
+			<li class="mobile-menu-list_item">
+				<a href="#blog" class="mobile-menu__link scroll_js">Blog</a>
+			</li>
+			<li class="mobile-menu-list_item">
+				<a href="#contacts" class="mobile-menu__link scroll_js">Contacts</a>
+			</li>
+			<li class="mobile-menu-list_item">
+				<a href="https://github.com/melnik909/responsive-UX-theme" class="mobile-menu__link">GitHub</a>
+			</li>
+		</ul>
 	</div>
-</footer>
-<div id="collapse" class="full_menu">
-	<span id="close_menu">+</span>
-	<ul class="additional_menu">
-		<li class="additional_menu_item">
-			<a href="#about" class="additional_menu_link scroller_link">About</a>
-		</li>
-		<li class="additional_menu_item">
-			<a href="#works_portfolio" class="additional_menu_link scroller_link">Works</a>
-		</li>
-		<li class="additional_menu_item">
-			<a href="#feedback" class="additional_menu_link scroller_link">Feedback</a>
-		</li>
-		<li class="additional_menu_item">
-			<a href="#contacts" class="additional_menu_link scroller_link">Contacts</a>
-		</li>
-		<li class="additional_menu_item">
-			<a href="shortcodes.html" class="menu_link">Shortcodes</a>
-		</li>
-		<li class="additional_menu_item">
-			<a href="blog.html" class="menu_link">Blog</a>
-		</li>
-		<li class="additional_menu_item">
-			<a href="portfolio3.html" class="menu_link">Portfolio 3 Columns</a>
-		</li>
-		<li class="additional_menu_item">
-			<a href="portfolio4.html" class="menu_link">Portfolio 4 Columns</a>
-		</li>
-		<li class="additional_menu_item">
-			<a href="dynamic_portfolio.html" class="menu_link">Dynamic portfolio</a>
-		</li>
-		<li class="additional_menu_item">
-			<a href="project.html" class="menu_link">Single Project</a>
-		</li>
-		<li class="additional_menu_item">
-			<a href="http://stas-melnikov.ru/3d_panorama/" target="blank" class="menu_link">3d Single Project</a>
-		</li>
-		<li class="additional_menu_item">
-			<a href="doc/index.html" class="menu_link">Documentation</a>
-		</li>
-		<li class="additional_menu_item">
-			<a href="https://github.com/melnik909/responsive-UX-theme" class="menu_link">GitHub</a>
-		</li>
-	</ul>
-</div>
-<script async src="js/min/fullslider.min.js"></script>
-<script src="js/jquery.js"></script>
-<script async src="js/min/filter.min.js"></script>
-<script async src="js/min/full_menu.min.js"></script>
-<script async src="js/min/form_elements.min.js"></script>
-<script async src="js/min/main.min.js"></script>
-<script async src="js/min/skills.min.js"></script>
-<script>
-	function Remove_Preloader(){
-		document.body.classList.remove('active_preloader'); 
-	};
-	
-	window.addEventListener( 'load', Remove_Preloader, false );
-</script>
+<script src="core/js/min/app.min.js"></script>
 <script>
 (function(){
 
@@ -316,62 +306,28 @@
 	
 	scripts_len = scripts.length;
 
-	
-	window.addEventListener('load', init(scripts));
-
+	//window.addEventListener('load', init(scripts));
 	
 	function init(scripts){
+	
 		var script;
+		
 		setTimeout(function(){
+		
 			if(window.outerWidth > 640){
 
 				for(var i = 0; i < scripts_len; i++){
+				
 					script = document.createElement("script");
 					script.src = scripts[i].src;
 					script.async = scripts[i].async;
 					document.body.appendChild(script);
+					
 				}
-				
 			}
 		},600);
 	}
 })();
 </script> 
-<script>
-(function(){
-
-	window.addEventListener('load', init_ga);
-	window.addEventListener( 'resize', init_ga);
-	var flag_map = true;
-
-	function init_ga(){
-		if((window.outerWidth > 640) && (flag_map)){
-			var script = document.createElement("script");
-			script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDEN_8Sph4q9GwhWKKnsOP5bl4Frwyo3aM&amp;sensor=false&callback=initMap";
-			script.async = true;
-			document.body.appendChild(script);
-			flag_map = false;
-		}
-	}
-})();
-function initMap() {
-	var mapCanvas = document.getElementById('map');
-	var mapOptions = {
-	  center: new google.maps.LatLng(53.186162, 45.00961),
-	  zoom: 17,
-	  mapTypeId: google.maps.MapTypeId.roadmap,
-	  scrollwheel: false,
-	  scaleControl: false,
-			}
-	
-	var map = new google.maps.Map(mapCanvas, mapOptions),
-		marker = new google.maps.Marker({
-		position: new google.maps.LatLng(53.186162, 45.00961),
-		map: map,
-		icon: '/templates/devlab/images/marker.png',
-		});
-	google.maps.event.addDomListener(window, 'load', initMap);
-}
-</script>
 </body>
 </html>
