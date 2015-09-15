@@ -6,7 +6,7 @@ which will help you to use it.
 # DEMO
 <a href="http://stas-melnikov.ru/themes/responsive_ux_template">http://stas-melnikov.ru/themes/responsive_ux_template</a>
 #Help(Donate)
-If you liked this theme, please donate to me to steam of dollars. I very need your help. Thanks!
+If you liked this theme, please donate to me on PayPal or contact me. Thanks!
 #Browsers
 IE10+, Opera, Safari, Yandex browser, Chrome, Firefox, Mobile Safari, Android
 #License
