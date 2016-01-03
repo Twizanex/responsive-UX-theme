@@ -24,7 +24,7 @@ var ResponsiveUX = {
 		marker = new google.maps.Marker({
 			position: new google.maps.LatLng(53.186162, 45.00961),
 			map: map,
-			icon: 'core/images/marker.png',
+			icon: 'icons/marker.svg',
 		});
 	},
 	
@@ -57,7 +57,7 @@ var ResponsiveUX = {
 			event.preventDefault();
 			
 			var	target = $(this).attr('href'),
-			position = ($(target).offset().top) - 90; 
+			position = ($(target).offset().top) - $(".header_js").outerHeight(); 
 			
 			if($(this).hasClass("mobile-menu__link")){
 				
