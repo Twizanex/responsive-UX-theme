@@ -9,5 +9,17 @@
     "gulp-cssnano": "^2.0.0",
     "gulp-html-minifier": "^0.1.7",
     "gulp-svgmin": "^1.2.0"
-  }
+  },
+  "description": "Responsive UX template-is the modern and responsive html a template. It was developed by means of <a href=\"http://stas-melnikov.ru/responsive_elements\">Responsive framework</a>. The template responds all\r the modern of the requirement. In case of creation were used next technologies were used: HTML5, CSS3. Also in it\r the responsive grid, css3 animation and many other components are included. It is prepared documentation is qualitative,\r which will help you to use it.\r ##Donate\r If you liked this theme, please donate to me on <a href=\"https://www.paypal.me/melnik909\" target=\"blank\">PayPal</a> or contact me. Thanks!\r ##Browsers\r IE10+, Opera, Safari, Yandex browser, Chrome, Firefox, Mobile Safari, Android\r ##License\r MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://melnik909@github.com/melnik909/responsive-UX-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/melnik909/responsive-UX-theme/issues"
+  },
+  "homepage": "https://github.com/melnik909/responsive-UX-theme#readme"
 }
