@@ -3,7 +3,7 @@ base64 = require('gulp-css-base64'),
 htmlmin = require('gulp-html-minifier'),
 cssmin = require('gulp-cssnano'),
 svgmin = require('gulp-svgmin');
-
+/**/
 gulp.task('svg', function () {
     return gulp.src('theme/icons/*.svg')
         .pipe(svgmin())
