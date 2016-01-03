@@ -3,7 +3,7 @@ base64 = require('gulp-css-base64'),
 htmlmin = require('gulp-html-minifier'),
 cssmin = require('gulp-cssnano'),
 svgmin = require('gulp-svgmin');
-/**/
+/*34645643*/
 gulp.task('svg', function () {
     return gulp.src('theme/icons/*.svg')
         .pipe(svgmin())
@@ -16,7 +16,7 @@ gulp.task('css', function () {
 		.pipe(cssmin())
         .pipe(gulp.dest('dist/css'));
 });
-//9999//
+
 gulp.task('default', ['css', 'svg'],function () {
   gulp.src('theme/*.html')
     .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
