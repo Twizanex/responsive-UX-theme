@@ -16,7 +16,7 @@ gulp.task('css', function () {
 		.pipe(cssmin())
         .pipe(gulp.dest('dist/css'));
 });
-
+//9999//
 gulp.task('default', ['css', 'svg'],function () {
   gulp.src('theme/*.html')
     .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
