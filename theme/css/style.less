@@ -153,10 +153,10 @@ p{
  *preloader
  */
 
-@mpc_preloader9_size: 15px;
-@mpc_preloader9_color1: #6cc88a;
-@mpc_preloader9_color2: #4fc3f7;
-@mpc_preloader9_time: 1.8s;
+@mpc-preloader9_size: 15px;
+@mpc-preloader9_color1: #6cc88a;
+@mpc-preloader9_color2: #4fc3f7;
+@mpc-preloader9_time: 1.8s;
  
 .preloader_active{
 	
@@ -177,7 +177,7 @@ p{
 		z-index: 998;
 	}
 	
-	.mpc_preloader{
+	.mpc-preloader{
 		.m_absolute_middle();
 		position: fixed;
 		left: 50%;
@@ -185,42 +185,42 @@ p{
 		.m_translate(-50%, -50%);
 	}
 	
-	.mpc_preloader9{
+	.mpc-preloader9{
 		
 		&:before, &:after{
 			content: "";
 			display: block;
-			.m_circle(@mpc_preloader9_size, @mpc_preloader9_size);
+			.m_circle(@mpc-preloader9_size, @mpc-preloader9_size);
 			position: absolute;
 		}
 
 		&:before{
 			
-			background-color: @mpc_preloader9_color1;
+			background-color: @mpc-preloader9_color1;
 			.m_translate(-50%, 0%);
 			
 			-webkit-animation-fill-mode: both;
 			animation-fill-mode: both;
 			
-			-webkit-animation: mpc_preloader_left_round @mpc_preloader9_time infinite ease-in-out;
-			animation: mpc_preloader_left_round @mpc_preloader9_time infinite ease-in-out;
+			-webkit-animation: mpc-preloader_left_round @mpc-preloader9_time infinite ease-in-out;
+			animation: mpc-preloader_left_round @mpc-preloader9_time infinite ease-in-out;
 		}
 
 		&:after{ 
 
-			background-color: @mpc_preloader9_color2;
+			background-color: @mpc-preloader9_color2;
 			.m_translate(150%, 0%);
 			
 			-webkit-animation-fill-mode: both; 
 			animation-fill-mode: both;
 			
-			-webkit-animation: mpc_preloader_right_round @mpc_preloader9_time infinite ease-in-out;
-			animation: mpc_preloader_right_round @mpc_preloader9_time infinite ease-in-out;
+			-webkit-animation: mpc-preloader_right_round @mpc-preloader9_time infinite ease-in-out;
+			animation: mpc-preloader_right_round @mpc-preloader9_time infinite ease-in-out;
 		}
 	}
 }
 
-.ma_mpc_preloader9(@value1, @value2, @value3, @value4){
+.ma_mpc-preloader9(@value1, @value2, @value3, @value4){
 	
 	50%{
 		.m_translate(@value1, @value2);
@@ -231,18 +231,18 @@ p{
 	}
 }
 
-@-webkit-keyframes mpc_preloader_left_round{
-	.ma_mpc_preloader9(150%, 0%, -50%, 0%)
+@-webkit-keyframes mpc-preloader_left_round{
+	.ma_mpc-preloader9(150%, 0%, -50%, 0%)
 }
 
-@keyframes mpc_preloader_left_round{
-	.ma_mpc_preloader9(150%, 0%, -50%, 0%)
+@keyframes mpc-preloader_left_round{
+	.ma_mpc-preloader9(150%, 0%, -50%, 0%)
 }
 
-@-webkit-keyframes mpc_preloader_right_round{
-	.ma_mpc_preloader9(-50%, 0%, 150%, 0%) 
+@-webkit-keyframes mpc-preloader_right_round{
+	.ma_mpc-preloader9(-50%, 0%, 150%, 0%) 
 }
 
-@keyframes mpc_preloader_right_round{
-	.ma_mpc_preloader9(-50%, 0%, 150%, 0%)
+@keyframes mpc-preloader_right_round{
+	.ma_mpc-preloader9(-50%, 0%, 150%, 0%)
 }

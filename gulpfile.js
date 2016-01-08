@@ -11,7 +11,7 @@ gulp.task('svg', function () {
 });
 
 gulp.task('css', function () {
-    return gulp.src('dist/css/style.css')
+    return gulp.src('theme/css/style.css')
         .pipe(base64({extensionsAllowed: ['.svg']}))
 		.pipe(cssmin())
         .pipe(gulp.dest('dist/css'));
