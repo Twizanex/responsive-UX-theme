@@ -1,0 +1,51 @@
+
+.path(@name){
+    @base-path: "../icons/";
+    background-image: url("@{base-path}@{name}");	 
+}
+
+@icon_size: 1.8rem;
+ 
+.icon{
+
+	display: inline-block;
+	vertical-align: middle;
+	
+	&:before{
+		
+		content: "";
+		display: inline-block;
+		
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+	    background-size: contain;
+		
+		width: @icon_size;
+		height: @icon_size;	
+	}
+}
+
+.icon-tag:before{
+	.path("tags.svg");
+	margin-top: 10px;
+}
+ 
+.icon-user:before{
+	.path("user.svg");
+}
+
+.icon-pencil:before{
+	.path("pencil_w.svg");
+}
+
+.icon-mail:before{
+	.path("mail_w.svg");
+}
+
+.icon-keyboard:before{
+	.path("keyboard_w.svg");
+}
+
+.icon-cup:before{
+	.path("cup_w.svg");
+}

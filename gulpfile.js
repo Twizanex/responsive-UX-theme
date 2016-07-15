@@ -1,24 +1,36 @@
-var gulp = require('gulp'),
-base64 = require('gulp-css-base64'),
-htmlmin = require('gulp-html-minifier'),
-cssmin = require('gulp-cssnano'),
-svgmin = require('gulp-svgmin');
 
-gulp.task('svg', function () {
-    return gulp.src('theme/icons/*.svg')
-        .pipe(svgmin())
-        .pipe(gulp.dest('dist/icons'));
+var gulp = require("gulp"),
+base64 = require("gulp-css-base64"),
+
+jshint = require("gulp-jshint"),
+stylish = require("jshint-stylish"),
+
+htmlmin = require("gulp-html-minifier"),
+
+pathSource = "theme",
+pathSite = "site",
+pathDist = pathSite + "/dist";
+
+gulp.task("base64", function(){
+	
+    gulp.src(pathSource + "/css/style.css")
+	.pipe(base64({extensionsAllowed: [".svg"]}))
+	.pipe(gulp.dest(pathSite + "/css"));
+	
 });
 
-gulp.task('css', function () {
-    return gulp.src('theme/css/style.css')
-        .pipe(base64({extensionsAllowed: ['.svg']}))
-		.pipe(cssmin())
-        .pipe(gulp.dest('dist/css'));
+gulp.task("valid-js", function (){
+	
+    gulp.src(pathSource + "/**/*.js")
+	.pipe(jshint())
+	.pipe(jshint.reporter('jshint-stylish'))
+	
 });
 
-gulp.task('default', ['css', 'svg'],function () {
-  gulp.src('theme/*.html')
-    .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
-    .pipe(gulp.dest('dist'))
+gulp.task("default", ["base64"],function(){
+	
+	gulp.src(pathSite + "/index.html")
+	.pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
+	.pipe(gulp.dest(pathDist));
+	
 });

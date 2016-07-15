@@ -1,19 +1,34 @@
-/*
-author: Developed by Stas Melnikov. http://stas-melnikov.ru
-e-mail: melnik909@ya.ru
-linkedIn: https://www.linkedin.com/in/melnik909
-github: https://github.com/melnik909
-facebook: https://www.facebook.com/melnik909
-Template created with use of a Responsive Framework http://stas-melnikov.ru/responsive_elements/
-*/
 
-
-(function($){
-
-	$(window).on('load', function(){
+ResponsiveUX.initGoogleMap = function(){
+	
+	var mapNodeDOM = document.querySelector("#js-google-map"),
+	
+	map = new ResponsiveUX.CreateGoogleMap({
 		
-		ResponsiveUX.init();
-
+		mapNodeDOM: mapNodeDOM,
+		lat: mapNodeDOM.getAttribute("data-lat"),
+		lng: mapNodeDOM.getAttribute("data-lng"),
+		pathIcon: mapNodeDOM.getAttribute("data-path-icon")
+		
 	});
+	
+};
 
-})(jQuery);
+(function(){
+
+	var scriptGoogleMap = document.createElement("script");
+ 
+	scriptGoogleMap.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDEN_8Sph4q9GwhWKKnsOP5bl4Frwyo3aM&amp;sensor=false&callback=ResponsiveUX.initGoogleMap";
+	scriptGoogleMap.async = true;
+	
+	function initTheme(){
+		
+		ResponsiveUX.addClass(document.body, "page-load");
+		document.body.appendChild(scriptGoogleMap);
+		ResponsiveUX.initMenu();
+		
+	}
+
+	window.addEventListener("load", initTheme);
+	
+})();

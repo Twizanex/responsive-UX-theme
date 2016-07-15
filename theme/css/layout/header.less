@@ -1,0 +1,38 @@
+
+@header_height: 7.5rem;
+
+.header{
+
+	min-width: 100%;
+	height: @header_height;
+	
+	padding: 1rem 0;
+	border-bottom: .5rem solid @color_yellow;
+	box-sizing: border-box;
+	
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 997;
+	
+	background-color: @color_white;
+	transition: padding .4s ease-out;
+}
+
+.logo{
+	font-size: 2.4rem;
+	font-weight: 400;
+}
+
+.logo__item{
+	font-size: 1.4rem;
+	color: @color_theme;
+	display: block;
+}
+
+@media screen and (max-width: 640px){
+
+	.header__menu-list{
+		display: none;
+	}
+}

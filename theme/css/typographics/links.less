@@ -1,0 +1,31 @@
+
+a{
+	color: @color_theme;
+	text-decoration: none;
+	
+	&:hover, &:focus{
+		color: @color_black;
+	}
+}
+
+.link{
+	transition: color .4s ease-out 0s;
+}
+
+.link_black{
+	
+	color: @color_black;
+	
+	&:hover, &:focus{
+		color: @color_theme;
+	}
+}
+
+.link_white{
+	
+	color: @color_white;
+	
+	&:hover, &:focus{
+		color: @color_gray;
+	}
+}
