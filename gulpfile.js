@@ -6,20 +6,20 @@ jshint = require("gulp-jshint"),
 stylish = require("jshint-stylish"),
 
 htmlmin = require("gulp-html-minifier"),
+htmlreplace = require("gulp-html-replace"),
 
 pathSource = "theme",
-pathSite = "site",
-pathDist = pathSite + "/dist";
+pathDist = "site";
 
 gulp.task("base64", function(){
 	
     gulp.src(pathSource + "/css/style.css")
 	.pipe(base64({extensionsAllowed: [".svg"]}))
-	.pipe(gulp.dest(pathSite + "/css"));
+	.pipe(gulp.dest(pathDist + "/css"));
 	
 });
 
-gulp.task("valid-js", function (){
+gulp.task("valid-js", function(){
 	
     gulp.src(pathSource + "/**/*.js")
 	.pipe(jshint())
@@ -27,10 +27,13 @@ gulp.task("valid-js", function (){
 	
 });
 
-gulp.task("default", ["base64"],function(){
+gulp.task("html", function(){
 	
-	gulp.src(pathSite + "/index.html")
+    gulp.src(pathSource + "/index.html")
+	.pipe(htmlreplace({js: "js/min/app.min.js"}))
 	.pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
 	.pipe(gulp.dest(pathDist));
 	
 });
+
+gulp.task("default", ["html", "base64"]);
